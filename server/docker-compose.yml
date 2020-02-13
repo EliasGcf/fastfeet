@@ -1,0 +1,32 @@
+version: '3.6'
+
+networks:
+  fastfeet-network:
+    driver: bridge
+
+services:
+  fastfeet-api:
+    build: .
+    volumes:
+      - .:/home/node/api
+    environment:
+      - DB_HOST=fastfeet-postgres
+    depends_on:
+      - fastfeet-postgres
+    networks:
+      - fastfeet-network
+    container_name: fastfeet-api
+    command: yarn dev
+    ports:
+      - '3333:3333'
+
+  fastfeet-postgres:
+    image: postgres
+    container_name: fastfeet-postgres
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - '5432:5432'
+    networks:
+      - fastfeet-network
