@@ -16,6 +16,9 @@
 
 ## Etapa 02
 
+### Funcinalidades gerais
+- [] Rota para realizar o upload de images
+
 ### Funcionalidades do administrador
 - [] Gestão de entregadores
 	- [] Realizar o CRUD completo
