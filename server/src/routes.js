@@ -15,5 +15,6 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 
 routes.post('/recipients', RecipientController.store);
+routes.put('/recipients/:id', RecipientController.update);
 
 export default routes;
