@@ -33,7 +33,16 @@ class DeliverymenController {
 	}
 
 	async index(req, res) {
-		const deliverymen = await Deliveryman.findAll();
+		const deliverymen = await Deliveryman.findAll({
+			attributes: ['id', 'name', 'email'],
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url'],
+				},
+			],
+		});
 
 		return res.json(deliverymen);
 	}
@@ -88,7 +97,17 @@ class DeliverymenController {
 
 		await deliveryman.update({ name, email, avatar_id });
 
-		return res.json({ id, name, email, avatar_id });
+		const { avatar } = await Deliveryman.findByPk(id, {
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url'],
+				},
+			],
+		});
+
+		return res.json({ id, name, email, avatar });
 	}
 
 	async destroy(req, res) {
