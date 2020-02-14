@@ -1,6 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
 class Recipient extends Model {
+	// Destinatário
 	static init(sequelize) {
 		super.init(
 			{

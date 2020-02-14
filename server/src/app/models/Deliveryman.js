@@ -1,6 +1,7 @@
 import Sequelize, { Model } from 'sequelize';
 
 class Deliveryman extends Model {
+	// Entregador
 	static init(sequelize) {
 		super.init(
 			{
