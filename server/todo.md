@@ -17,15 +17,18 @@
 ## Etapa 02
 
 ### Funcinalidades gerais
-- [] Rota para realizar o upload de images
+- [x] Rota para realizar o upload de images
 
 ### Funcionalidades do administrador
-- [] Gestão de entregadores
+- [] Gestão de entregadores (Deliverymen)
 	- [] Realizar o CRUD completo
-		- [] Validação de dados
+		- Falta terminar o método `destroy`
+		- [x] Validação de dados
 </br>
 - [] Gestão de encomendas
 	- [] Realizar o CRUD completo
+		- Falta enviar email no método `store`
+		- Falta os métodos: update, destroy
 		- [] Validação de dados
 </br>
 
