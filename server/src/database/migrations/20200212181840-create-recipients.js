@@ -23,7 +23,7 @@ module.exports = {
 			},
 			complement: {
 				type: Sequelize.TEXT,
-				allowNull: false,
+				allowNull: true,
 			},
 			state: {
 				type: Sequelize.STRING,
