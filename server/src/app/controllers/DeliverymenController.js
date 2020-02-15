@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 
 import Deliveryman from '../models/Deliveryman';
+import Delivery from '../models/Delivery';
 import File from '../models/File';
 
 class DeliverymenController {
@@ -113,15 +114,23 @@ class DeliverymenController {
 	async destroy(req, res) {
 		const { id } = req.params;
 
-		return res.json({
-			id,
-			alert:
-				'Verificar em todas as tabelas que tem deliveryman_id, e só permita deletar, caso não haja nenhum registro desse id.',
-		});
-		/*
-			Verificar em todas as tabelas que tem deliveryman_id, e só permita
-			deletar, caso não haja nenhum registro desse id.
-		 */
+		const deliveryman = await Deliveryman.findByPk(id);
+
+		if (!deliveryman) {
+			return res.status(400).json({ error: 'Delivery man does not exists' });
+		}
+
+		const delivery = await Delivery.findOne({ where: { end_date: null } });
+
+		if (delivery) {
+			return res
+				.status(400)
+				.json({ error: "This Delivery man can't be deleted" });
+		}
+
+		await deliveryman.destroy();
+
+		return res.json({});
 	}
 }
 

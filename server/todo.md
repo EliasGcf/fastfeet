@@ -20,9 +20,8 @@
 - [x] Rota para realizar o upload de images
 
 ### Funcionalidades do administrador
-- [] Gestão de entregadores (Deliverymen)
-	- [] Realizar o CRUD completo
-		- Falta terminar o método `destroy`
+- [x] Gestão de entregadores (Deliverymen)
+	- [x] Realizar o CRUD completo
 		- [x] Validação de dados
 </br>
 - [] Gestão de encomendas
