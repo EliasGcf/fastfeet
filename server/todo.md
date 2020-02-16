@@ -24,6 +24,7 @@
 	- [x] Realizar o CRUD completo
 		- [x] Validação de dados
 </br>
+
 - [] Gestão de encomendas
 	- [x] Realizar o CRUD completo
 		- Falta enviar email no método `store`
