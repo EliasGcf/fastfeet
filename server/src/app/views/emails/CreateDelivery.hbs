@@ -1,0 +1,17 @@
+<strong>Olá {{ deliveryman }}</strong>
+<p>Você tem uma nova encomenda disponível para retirada</p>
+<p>Confira os detalhes abaixo:</p>
+<p>
+	<strong>Produto: </strong> {{ product }} <br />
+	<strong>Destinatário: </strong> {{ recipient }} <br />
+	<br />
+	<strong>Endereço:</strong> <br />
+		<strong>Cidade: </strong> {{ city }}, - {{ state }} <br />
+		<strong>Rua: </strong> {{ street }}, Nº {{ number }} <br />
+		<strong>CEP: </strong> {{ zip_code }}
+</p>
+<p>
+	<small>
+		Obs.: Horário disponível para retirada ainde é entre 8h e 18h.
+	</small>
+</p>
