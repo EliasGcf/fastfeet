@@ -25,10 +25,9 @@
 		- [x] Validação de dados
 </br>
 - [] Gestão de encomendas
-	- [] Realizar o CRUD completo
+	- [x] Realizar o CRUD completo
 		- Falta enviar email no método `store`
-		- Falta os métodos: update, destroy
-		- [] Validação de dados
+		- [x] Validação de dados
 </br>
 
 ### Funcionalidades do entregador

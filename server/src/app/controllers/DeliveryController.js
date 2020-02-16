@@ -87,6 +87,89 @@ class DeliveryController {
 
 		return res.json(deliveries);
 	}
+
+	async update(req, res) {
+		const schema = Yup.object().shape({
+			product: Yup.string().notRequired(),
+			recipient_id: Yup.number().notRequired(),
+			deliveryman_id: Yup.number().notRequired(),
+		});
+
+		if (!(await schema.isValid(req.body))) {
+			return res.status(400).json({ error: 'validation fails' });
+		}
+
+		const { id } = req.params;
+
+		/*
+		 * Check if delivery exists
+		 */
+		const delivery = await Delivery.findByPk(id);
+
+		if (!delivery) {
+			return res.status(400).json({ error: 'Delivery does not exists' });
+		}
+
+		const { product, recipient_id, deliveryman_id } = req.body;
+
+		await delivery.update({ product, recipient_id, deliveryman_id });
+
+		return res.json({});
+
+		/*
+		 * Check if req.body have start_date
+		 */
+		// if (req.body.start_date) {
+		// 	const { start_date } = req.body;
+
+		// 	/*
+		// 	 * Check if the hours is between 8h and 18h
+		// 	 */
+		// 	if (
+		// 		isAfter(parseISO(start_date), setHours(new Date(), 8)) &&
+		// 		isBefore(parseISO(start_date), setHours(new Date(), 18))
+		// 	) {
+		// 		await delivery.update({ start_date });
+		// 		return res.json({});
+		// 	}
+
+		// 	return res.status(400).json({ error: 'Invalid time' });
+		// }
+
+		// /*
+		//  * Check if req.body have signature_id
+		//  */
+		// if (req.body.signature_id) {
+		// 	const signature_id = req.body;
+
+		// 	await delivery.update({ signature_id, end_date: new Date() });
+		// 	return res.json({});
+		// }
+	}
+
+	async destroy(req, res) {
+		const { id } = req.params;
+
+		/*
+		 * Check if delivery exists
+		 */
+		const delivery = await Delivery.findByPk(id);
+
+		if (!delivery) {
+			return res.status(400).json({ error: 'Delivery does not exists' });
+		}
+
+		/*
+		 * Checks if delivery was got
+		 */
+		if (delivery.start_date) {
+			return res.status(400).json({ error: 'This Delivery already been sent' });
+		}
+
+		await delivery.destroy();
+
+		return res.json({});
+	}
 }
 
 export default new DeliveryController();
