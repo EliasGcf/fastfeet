@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 const faker = require('faker');
 
+faker.locale = 'pt_BR';
+
 module.exports = {
 	up: queryInterface => {
 		return queryInterface.bulkInsert(
