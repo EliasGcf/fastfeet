@@ -8,6 +8,8 @@ import RecipientController from './app/controllers/RecipientController';
 import DeliverymanController from './app/controllers/DeliverymanController';
 import FileController from './app/controllers/FileController';
 import DeliveryController from './app/controllers/DeliveryController';
+import DeliveryPendingController from './app/controllers/DeliveryPendingController';
+import DeliveryDeliveredController from './app/controllers/DeliveryDeliveredController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -15,6 +17,9 @@ const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/sessions', SessionController.store);
+
+routes.get('/deliveryman/:id', DeliveryPendingController.index);
+routes.get('/deliveryman/:id/deliveries', DeliveryDeliveredController.index);
 
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 

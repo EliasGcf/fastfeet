@@ -18,6 +18,7 @@
 
 ### Funcinalidades gerais
 - [x] Rota para realizar o upload de images
+- [] Estilizar os emails
 
 ### Funcionalidades do administrador
 - [x] Gestão de entregadores (Deliverymen)
@@ -25,16 +26,15 @@
 		- [x] Validação de dados
 </br>
 
-- [] Gestão de encomendas
+- [x] Gestão de encomendas
 	- [x] Realizar o CRUD completo
-		- Falta enviar email no método `store`
 		- [x] Validação de dados
 </br>
 
 ### Funcionalidades do entregador
 - [] Visualizar encomendas por meio do ID
-	- [] Por padrão encomendas pentendes
-	- [] Também encomendas já entregues
+	- [x] Por padrão encomendas pentendes
+	- [x] Também encomendas já entregues
 - [] Alterar status de encomendas
  - [] Incluir data de retirada (start_date) e entrega (end_date)
  - [] Apenas 5 retiradas por dia
