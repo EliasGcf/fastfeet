@@ -5,7 +5,8 @@ import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipient';
 import File from '../models/File';
 
-import Mail from '../../lib/Mail';
+import Queue from '../../lib/Queue';
+import CreationDeliveryMail from '../jobs/CreationDeliveryMail';
 
 class DeliveryController {
 	async store(req, res) {
@@ -51,20 +52,10 @@ class DeliveryController {
 			deliveryman_id,
 		});
 
-		await Mail.sendMail({
-			to: `${deliveryman.name} <${deliveryman.email}>`,
-			subject: 'Nova entrega cadastrada',
-			template: 'CreateDelivery',
-			context: {
-				deliveryman: deliveryman.name,
-				product,
-				recipient: recipientExists.name,
-				city: recipientExists.city,
-				state: recipientExists.state,
-				street: recipientExists.street,
-				number: recipientExists.number,
-				zip_code: recipientExists.zip_code,
-			},
+		await Queue.add(CreationDeliveryMail.key, {
+			deliveryman,
+			recipient: recipientExists,
+			product,
 		});
 
 		return res.json({
