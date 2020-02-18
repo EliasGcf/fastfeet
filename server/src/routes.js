@@ -12,6 +12,7 @@ import DeliveryPendingController from './app/controllers/DeliveryPendingControll
 import DeliveryDeliveredController from './app/controllers/DeliveryDeliveredController';
 import DeliveryWithDrawController from './app/controllers/DeliveryWithDrawController';
 import DeliveryFinishController from './app/controllers/DeliveryFinishController';
+import DeliveryProblem from './app/controllers/DeliveryProblemController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -31,6 +32,8 @@ routes.put(
 	DeliveryFinishController.update
 );
 
+routes.post('/delivery/:id/problems', DeliveryProblem.store);
+
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 
 // Rotas de destinatarios
@@ -48,6 +51,11 @@ routes.post('/deliveries', DeliveryController.store);
 routes.get('/deliveries', DeliveryController.index);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.destroy);
+
+routes.get('/deliveries/problems', DeliveryProblem.index);
+routes.get('/delivery/:id/problems', DeliveryProblem.show);
+
+routes.delete('/problem/:id/cancel-delivery', DeliveryProblem.destroy);
 
 routes.post('/files', upload.single('file'), FileController.store); // Upload de arquivos
 

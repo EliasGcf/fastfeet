@@ -1,6 +1,8 @@
 import Sequelize from 'sequelize';
+import mongoose from 'mongoose';
 
 import databaseConfig from '../config/database';
+import mongoConfig from '../config/mongo';
 
 // Importar models e colocar no array
 import User from '../app/models/User';
@@ -14,6 +16,7 @@ const models = [User, Recipient, File, Deliveryman, Delivery];
 class Database {
 	constructor() {
 		this.init();
+		this.mongo();
 	}
 
 	init() {
@@ -22,6 +25,17 @@ class Database {
 		models
 			.map(model => model.init(this.connection))
 			.map(model => model.associate && model.associate(this.connection.models));
+	}
+
+	mongo() {
+		this.mongoConnection = mongoose.connect(
+			`mongodb://${mongoConfig.username}:${mongoConfig.password}@${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
+			{
+				useNewUrlParser: true,
+				useFindAndModify: true,
+				useUnifiedTopology: true,
+			}
+		);
 	}
 }
 

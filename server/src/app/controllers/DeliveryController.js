@@ -68,8 +68,6 @@ class DeliveryController {
 			end_date,
 			canceled_at,
 		});
-
-		// Enviar email para o entregador
 	}
 
 	async index(req, res) {

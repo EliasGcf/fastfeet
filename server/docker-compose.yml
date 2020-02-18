@@ -12,8 +12,10 @@ services:
     environment:
       - DB_HOST=fastfeet-postgres
       - REDIS_URL=fastfeet-redis
+      - MONGO_URL=fastfeet-mongo
     depends_on:
       - fastfeet-postgres
+      - fastfeet-mongo
     networks:
       - fastfeet-network
     container_name: fastfeet-api
@@ -26,6 +28,7 @@ services:
     environment:
       - DB_HOST=fastfeet-postgres
       - REDIS_URL=fastfeet-redis
+      - MONGO_URL=fastfeet-mongo
     depends_on:
       - fastfeet-redis
     networks:
@@ -41,6 +44,19 @@ services:
       - POSTGRES_DB=${DB_NAME}
     ports:
       - '5432:5432'
+    networks:
+      - fastfeet-network
+
+  fastfeet-mongo:
+    image: bitnami/mongodb:latest
+    container_name: fastfeet-mongo
+    environment:
+      - ALLOW_EMPTY_PASSWORD=no
+      - MONGODB_USERNAME=${MONGO_USER}
+      - MONGODB_PASSWORD=${MONGO_PASS}
+      - MONGODB_DATABASE=${MONGO_DB}
+    ports:
+      - '27017:27017'
     networks:
       - fastfeet-network
 

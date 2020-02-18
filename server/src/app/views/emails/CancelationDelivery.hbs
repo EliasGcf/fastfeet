@@ -1,0 +1,17 @@
+<strong>Olá {{ deliveryman }}</strong>
+<p>Você tem uma encomenda cancelada.</p>
+<p>Devido ao seu problema, relatado em nossa plataforma, decidimos cancelar a entrega.</p>
+<p>Detalhes do problema:</p>
+<p>
+	<strong>Descrição do problema: </strong> {{ description }} <br />
+</p>
+<p>Confira os detalhes da entrega cancelada:</p>
+<p>
+	<strong>Produto: </strong> {{ product }} <br />
+	<strong>Destinatário: </strong> {{ recipient }} <br />
+	<br />
+	<strong>Endereço:</strong> <br />
+		<strong>Cidade: </strong> {{ city }}, - {{ state }} <br />
+		<strong>Rua: </strong> {{ street }}, Nº {{ number }} <br />
+		<strong>CEP: </strong> {{ zip_code }}
+</p>
