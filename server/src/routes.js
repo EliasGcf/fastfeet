@@ -10,6 +10,7 @@ import FileController from './app/controllers/FileController';
 import DeliveryController from './app/controllers/DeliveryController';
 import DeliveryPendingController from './app/controllers/DeliveryPendingController';
 import DeliveryDeliveredController from './app/controllers/DeliveryDeliveredController';
+import DeliveryWithDrawController from './app/controllers/DeliveryWithDrawController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -20,6 +21,10 @@ routes.post('/sessions', SessionController.store);
 
 routes.get('/deliveryman/:id', DeliveryPendingController.index);
 routes.get('/deliveryman/:id/deliveries', DeliveryDeliveredController.index);
+routes.put(
+	'/deliveryman/:deliverymanId/delivery/:deliveryId',
+	DeliveryWithDrawController.update
+);
 
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 

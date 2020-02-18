@@ -124,36 +124,6 @@ class DeliveryController {
 		await delivery.update({ product, recipient_id, deliveryman_id });
 
 		return res.json({});
-
-		/*
-		 * Check if req.body have start_date
-		 */
-		// if (req.body.start_date) {
-		// 	const { start_date } = req.body;
-
-		// 	/*
-		// 	 * Check if the hours is between 8h and 18h
-		// 	 */
-		// 	if (
-		// 		isAfter(parseISO(start_date), setHours(new Date(), 8)) &&
-		// 		isBefore(parseISO(start_date), setHours(new Date(), 18))
-		// 	) {
-		// 		await delivery.update({ start_date });
-		// 		return res.json({});
-		// 	}
-
-		// 	return res.status(400).json({ error: 'Invalid time' });
-		// }
-
-		// /*
-		//  * Check if req.body have signature_id
-		//  */
-		// if (req.body.signature_id) {
-		// 	const signature_id = req.body;
-
-		// 	await delivery.update({ signature_id, end_date: new Date() });
-		// 	return res.json({});
-		// }
 	}
 
 	async destroy(req, res) {

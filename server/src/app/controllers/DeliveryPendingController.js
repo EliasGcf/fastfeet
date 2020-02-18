@@ -15,6 +15,7 @@ class DeliveryPendingController {
 
 		const deliveries = await Delivery.findAll({
 			where: {
+				deliveryman_id: deliverymanId,
 				signature_id: null,
 				canceled_at: null,
 			},
