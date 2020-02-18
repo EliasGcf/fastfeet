@@ -4,6 +4,13 @@
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
 
+<p align="center">
+ <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+ <a href="#computer-instalação-execução-e-desenvolvimento">Instalação, execução e desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+ <a href="#como-contribuir">Como contribuir</a>
+</p>
+
+
 <strong>Links dos desafios:</strong>
 - [Desafio 1](https://github.com/rocketseat/bootcamp-gostack-desafio-02)
 - [Desafio 2](https://github.com/rocketseat/bootcamp-gostack-desafio-03)
@@ -41,7 +48,7 @@ Faça um clone desse repositório.
 - Para executar somente a migration de `admin-user` rode o comando `yarn sequelize db:seed --seed 20200212180839-admin-user.js`
 - Importe o arquivo `Insomnia.json` desse repositório no Insomnia;
 
-[Rotas disponíveis no backend]()
+[Rotas do backend](https://github.com/EliasGcf/fastfeet/blob/master/server/README.md)
 
 ## 🤔 Como contribuir
 
