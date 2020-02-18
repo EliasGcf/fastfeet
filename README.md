@@ -57,4 +57,6 @@ Faça um clone desse repositório.
 - Faça commit das suas alterações: `git commit -m 'feat: Minha nova feature'`;
 - Faça push para a sua branch: `git push origin minha-feature`;
 
+---
+
 Feito com ♥ by [EliasGcf](https://www.linkedin.com/in/eliasgcf/)
