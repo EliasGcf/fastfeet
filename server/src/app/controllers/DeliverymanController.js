@@ -42,7 +42,7 @@ class DeliverymenController {
 			? await Deliveryman.findAll({
 					where: {
 						name: {
-							[Op.like]: deliverymanName,
+							[Op.like]: `${deliverymanName}%`,
 						},
 					},
 					attributes: ['id', 'name', 'email'],
