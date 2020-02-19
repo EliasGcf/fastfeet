@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
 
+import { Op } from 'sequelize';
+
 import Delivery from '../models/Delivery';
 import Deliveryman from '../models/Deliveryman';
 import Recipient from '../models/Recipient';
@@ -71,28 +73,68 @@ class DeliveryController {
 	}
 
 	async index(req, res) {
-		const deliveries = await Delivery.findAll({
-			attributes: ['id', 'product', 'start_date', 'end_date', 'canceled_at'],
-			include: [
-				{
-					model: Recipient,
-					as: 'recipient',
-					attributes: ['id', 'name'],
-				},
-				{
-					model: Deliveryman,
-					as: 'deliveryman',
-					attributes: ['id', 'name'],
-				},
-				{
-					model: File,
-					as: 'signature',
-					attributes: ['id', 'url', 'path'],
-				},
-			],
-		});
+		const { q: productName } = req.query;
 
-		return res.json(deliveries);
+		const response = productName
+			? await Delivery.findAll({
+					where: {
+						product: {
+							[Op.like]: productName,
+						},
+					},
+					attributes: [
+						'id',
+						'product',
+						'start_date',
+						'end_date',
+						'canceled_at',
+					],
+					include: [
+						{
+							model: Recipient,
+							as: 'recipient',
+							attributes: ['id', 'name'],
+						},
+						{
+							model: Deliveryman,
+							as: 'deliveryman',
+							attributes: ['id', 'name'],
+						},
+						{
+							model: File,
+							as: 'signature',
+							attributes: ['id', 'url', 'path'],
+						},
+					],
+			  })
+			: await Delivery.findAll({
+					attributes: [
+						'id',
+						'product',
+						'start_date',
+						'end_date',
+						'canceled_at',
+					],
+					include: [
+						{
+							model: Recipient,
+							as: 'recipient',
+							attributes: ['id', 'name'],
+						},
+						{
+							model: Deliveryman,
+							as: 'deliveryman',
+							attributes: ['id', 'name'],
+						},
+						{
+							model: File,
+							as: 'signature',
+							attributes: ['id', 'url', 'path'],
+						},
+					],
+			  });
+
+		return res.json(response);
 	}
 
 	async update(req, res) {

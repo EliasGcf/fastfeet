@@ -49,8 +49,8 @@
 
 ### Novas funcionalidades
 
-- [ ] Filtro na listagem de encomendas pelo nome do produto, `?q=Piano`
-- [ ] Filtro na listagem de entregadores pelo nome, `?q=Jonh`
-- [ ] Filtro na listagem de destinatários pelo nome, `?q=Ludwig`
+- [x] Filtro na listagem de encomendas pelo nome do produto, `?q=Piano`
+- [x] Filtro na listagem de entregadores pelo nome, `?q=Jonh`
+- [x] Filtro na listagem de destinatários pelo nome, `?q=Ludwig`
 
 _Para todos os casos a cima, utilize o operador `Like`, e caso o parrâmetro nao seja passado, retorne todos os dados_
