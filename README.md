@@ -1,5 +1,6 @@
 <h1 align="center">
   <img alt="FastFeet" title="FastFeet" src=".github/logo.png" width="300px" />
+  <img alt="GoStack" title="GoStack" src=".github/GoStackLogo.png" width="200px" />
 </h1>
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
