@@ -37,10 +37,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Faça um clone desse repositório.
 
 ### Pré-requisitos
+
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ### Backend
+
 - A partir da raiz do projeto, entre na pasta rodando `cd server`;
 - Rode `yarn` para instalar sua dependências;
 - Rode `cp .env.example .env` e preencha o arquivo `.env` com SUAS variáveis ambiente;
