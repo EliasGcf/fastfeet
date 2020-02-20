@@ -23,9 +23,11 @@ module.exports = {
   },
   plugins: [
 		'react',
-		'prettier'
+		'prettier',
+		'react-hooks',
   ],
   rules: {
+		camelcase: "off",
 		'prettier/prettier': 'error',
     'react/state-in-constructor': 'off',
     'react/jsx-filename-extension': [
@@ -33,5 +35,16 @@ module.exports = {
       { extensions: ['.jsx','.js'] }
     ],
 		'import/prefer-default-export': 'off',
-  },
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'warn',
+		'react/jsx-props-no-spreading': 'off',
+		'no-param-reassign': 'off',
+	},
+	settings: {
+		'import/resolver': {
+			'babel-plugin-root-import': {
+				rootPathSuffix: 'src',
+			},
+		},
+	}
 };
