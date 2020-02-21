@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Form } from '@unform/web';
-import { Input } from '~/components/Form';
+import { SimpleInput } from '~/components/Form';
 import { SimpleButton } from '~/components/Button';
 
 import { signInRequest } from '~/store/modules/auth/actions';
@@ -24,13 +24,13 @@ export default function SingIn() {
 			<img src={logo} alt="FastFeet" />
 
 			<Form onSubmit={handleSubmit}>
-				<Input
+				<SimpleInput
 					name="email"
 					label="SEU E-MAIL"
 					type="email"
 					placeholder="exemplo@email.com"
 				/>
-				<Input
+				<SimpleInput
 					name="password"
 					label="SUA SENHA"
 					type="password"

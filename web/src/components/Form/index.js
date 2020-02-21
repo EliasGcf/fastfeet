@@ -1,1 +1,2 @@
-export { default as Input } from './Input';
+export { default as SimpleInput } from './SimpleInput';
+export { default as SearchInput } from './SearcInput';

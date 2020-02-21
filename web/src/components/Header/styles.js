@@ -7,6 +7,7 @@ export const Container = styled.div`
 	padding: 0 30px;
 
 	border-bottom: 1px solid #ddd;
+	margin-bottom: 35px;
 `;
 
 export const Content = styled.div`

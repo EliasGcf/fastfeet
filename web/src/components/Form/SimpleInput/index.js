@@ -4,7 +4,7 @@ import { useField } from '@unform/core';
 
 import { UnInput, Error, Label } from './styles';
 
-export default function Input({ name, label, ...rest }) {
+export default function SimpleInput({ name, label, ...rest }) {
 	const inputRef = useRef(null);
 	const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
@@ -25,11 +25,11 @@ export default function Input({ name, label, ...rest }) {
 	);
 }
 
-Input.propTypes = {
+SimpleInput.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string,
 };
 
-Input.defaultProps = {
+SimpleInput.defaultProps = {
 	label: '',
 };

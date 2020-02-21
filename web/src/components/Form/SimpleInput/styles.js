@@ -5,6 +5,7 @@ export const UnInput = styled.input`
 
 	font-size: 16px;
 	color: #444;
+	border-radius: 4px;
 
 	&::placeholder {
 		color: #999;
@@ -12,14 +13,6 @@ export const UnInput = styled.input`
 
 	height: 45px;
 	border: 1px solid #ddd;
-
-	& + label {
-		margin-top: 15px;
-	}
-
-	& + button {
-		margin-top: 15px;
-	}
 `;
 
 export const Error = styled.span``;
