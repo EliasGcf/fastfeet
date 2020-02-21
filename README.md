@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="FastFeet" title="FastFeet" src=".github/logo.png" width="300px" />
+  <img alt="FastFeet" title="FastFeet" src=".github/LogoFastFeetGoStack.png" />
 </h1>
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
@@ -12,6 +12,7 @@
 
 
 <strong>Links dos desafios:</strong>
+
 - [Desafio 1](https://github.com/rocketseat/bootcamp-gostack-desafio-02)
 - [Desafio 2](https://github.com/rocketseat/bootcamp-gostack-desafio-03)
 - [Desafio 3](https://github.com/rocketseat/bootcamp-gostack-desafio-09)
@@ -36,10 +37,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Faça um clone desse repositório.
 
 ### Pré-requisitos
+
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
 ### Backend
+
 - A partir da raiz do projeto, entre na pasta rodando `cd server`;
 - Rode `yarn` para instalar sua dependências;
 - Rode `cp .env.example .env` e preencha o arquivo `.env` com SUAS variáveis ambiente;
