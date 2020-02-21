@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, Content } from './styles';
+import { Container, Content } from './styles';
 
-export default function HeaderForm({ title, onSubmit, children }) {
+export default function HeaderPage({ title, children }) {
 	return (
-		<Form onSubmit={onSubmit}>
+		<Container>
 			<h1>{title}</h1>
 
 			<Content>{children}</Content>
-		</Form>
+		</Container>
 	);
 }
 
-HeaderForm.propTypes = {
+HeaderPage.propTypes = {
 	title: PropTypes.string.isRequired,
-	onSubmit: PropTypes.func.isRequired,
 	children: PropTypes.arrayOf(PropTypes.element).isRequired,
 };

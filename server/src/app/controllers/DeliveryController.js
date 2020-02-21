@@ -79,7 +79,7 @@ class DeliveryController {
 			? await Delivery.findAll({
 					where: {
 						product: {
-							[Op.like]: `${productName}%`,
+							[Op.iLike]: `${productName}%`,
 						},
 					},
 					order: ['id'],

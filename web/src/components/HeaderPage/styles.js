@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { Form as unForm } from '@unform/web';
-
-export const Form = styled(unForm)`
+export const Container = styled.div`
 	h1 {
 		font-size: 24px;
 		font-weight: bold;
