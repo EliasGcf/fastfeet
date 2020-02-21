@@ -40,7 +40,11 @@ class DeliveryFinishController {
 			return res.status(400).json({ error: 'Signature image does not exists' });
 		}
 
-		await delivery.update({ end_date: new Date(), signature_id });
+		await delivery.update({
+			end_date: new Date(),
+			signature_id,
+			status: 'ENTREGUE',
+		});
 
 		return res.json({});
 	}

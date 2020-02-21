@@ -112,7 +112,7 @@ class DeliveryProblemController {
 			],
 		});
 
-		await delivery.update({ canceled_at: new Date() });
+		await delivery.update({ canceled_at: new Date(), status: 'CANCELADA' });
 
 		await Queue.add(CancelationDeliveryMail.key, {
 			deliveryman: delivery.deliveryman,

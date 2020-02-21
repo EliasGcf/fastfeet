@@ -58,7 +58,7 @@ class DeliveryWithDrawController {
 			return res.status(400).json({ error: 'Invalid time' });
 		}
 
-		await delivery.update({ start_date });
+		await delivery.update({ start_date, status: 'RETIRADA' });
 
 		return res.json({});
 	}

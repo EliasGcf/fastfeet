@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import More from '~/components/MorePopUp';
 
+import { statusColors } from '~/styles/colors';
+
 import { Container } from './styles';
 
 import Status from './DeliveryStatus';
@@ -16,9 +18,9 @@ export default function DeliveryItem({ data }) {
 			<small>{data.recipient.city}</small>
 			<small>{data.recipient.state}</small>
 			<Status
-				text={data.status.title}
-				color={data.status.color}
-				background={data.status.background}
+				text={data.status}
+				color={statusColors[data.status].color}
+				background={statusColors[data.status].background}
 			/>
 			<More />
 		</Container>
@@ -34,10 +36,6 @@ DeliveryItem.propTypes = {
 			city: PropTypes.string,
 			state: PropTypes.string,
 		}),
-		status: PropTypes.shape({
-			title: PropTypes.string,
-			color: PropTypes.string,
-			background: PropTypes.string,
-		}),
+		status: PropTypes.string,
 	}).isRequired,
 };

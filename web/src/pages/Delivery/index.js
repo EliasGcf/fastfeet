@@ -22,49 +22,14 @@ export default function Delivery() {
 			},
 		});
 
-		const data = response.data.map(delivery => {
-			let status;
-
-			if (delivery.signature) {
-				status = {
-					title: 'ENTREGUE',
-					color: '#2CA42B',
-					background: '#DFF0DF',
-				};
-			} else if (delivery.canceled_at) {
-				status = {
-					title: 'CANCELADA',
-					color: '#DE3B3B',
-					background: '#FAB0B0',
-				};
-			} else if (delivery.start_date) {
-				status = {
-					title: 'RETIRADA',
-					color: '#4D85EE',
-					background: '#BAD2FF',
-				};
-			} else {
-				status = {
-					title: 'PENDENTE',
-					color: '#C1BC35',
-					background: '#F0F0DF',
-				};
-			}
-
-			return {
-				...delivery,
-				status,
-			};
-		});
-
-		setDeliveries(data);
+		setDeliveries(response.data);
 	}
 
 	useEffect(() => {
 		async function loadDeliveries() {
 			const response = await api.get('/deliveries');
 
-			const data = response.data.map(delivery => {
+			/* const data = response.data.map(delivery => {
 				let status;
 
 				if (delivery.signature) {
@@ -97,9 +62,9 @@ export default function Delivery() {
 					...delivery,
 					status,
 				};
-			});
+			}); */
 
-			setDeliveries(data);
+			setDeliveries(response.data);
 		}
 
 		loadDeliveries();
