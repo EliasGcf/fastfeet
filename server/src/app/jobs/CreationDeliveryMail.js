@@ -11,7 +11,7 @@ class CreationDeliveryMail {
 		await Mail.sendMail({
 			to: `${deliveryman.name} <${deliveryman.email}>`,
 			subject: 'Nova entrega cadastrada',
-			template: 'CreateDelivery',
+			template: 'CreationDelivery',
 			context: {
 				deliveryman: deliveryman.name,
 				product,

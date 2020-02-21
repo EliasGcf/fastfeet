@@ -82,6 +82,7 @@ class DeliveryController {
 							[Op.like]: `${productName}%`,
 						},
 					},
+					order: ['id'],
 					attributes: [
 						'id',
 						'product',
@@ -93,7 +94,7 @@ class DeliveryController {
 						{
 							model: Recipient,
 							as: 'recipient',
-							attributes: ['id', 'name'],
+							attributes: ['id', 'name', 'city', 'state'],
 						},
 						{
 							model: Deliveryman,
@@ -115,11 +116,12 @@ class DeliveryController {
 						'end_date',
 						'canceled_at',
 					],
+					order: ['id'],
 					include: [
 						{
 							model: Recipient,
 							as: 'recipient',
-							attributes: ['id', 'name'],
+							attributes: ['id', 'name', 'city', 'state'],
 						},
 						{
 							model: Deliveryman,
