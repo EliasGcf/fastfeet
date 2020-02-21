@@ -17,7 +17,7 @@ export const Grid = styled.div`
 		display: grid;
 
 		padding-left: 25px;
-		padding-right: 28px;
+		padding-right: 13px;
 
 		grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr 1.5fr 1fr 1fr;
 

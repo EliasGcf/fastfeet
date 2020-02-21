@@ -6,7 +6,7 @@ export const Container = styled.div`
 	border-radius: 4px;
 
 	padding-left: 25px;
-	padding-right: 35px;
+	padding-right: 13px;
 
 	display: grid;
 	grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr 1.5fr 1fr 1fr;
