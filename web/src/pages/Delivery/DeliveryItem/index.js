@@ -9,7 +9,7 @@ import { Container } from './styles';
 
 import Status from './DeliveryStatus';
 
-export default function DeliveryItem({ data }) {
+export default function DeliveryItem({ data, updateDeliveries }) {
 	return (
 		<Container>
 			<small>#{data.id}</small>
@@ -22,7 +22,7 @@ export default function DeliveryItem({ data }) {
 				color={statusColors[data.status].color}
 				background={statusColors[data.status].background}
 			/>
-			<More />
+			<More id={data.id} updateDeliveries={updateDeliveries} />
 		</Container>
 	);
 }

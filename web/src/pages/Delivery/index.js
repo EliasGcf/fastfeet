@@ -25,48 +25,13 @@ export default function Delivery() {
 		setDeliveries(response.data);
 	}
 
+	async function loadDeliveries() {
+		const response = await api.get('/deliveries');
+
+		setDeliveries(response.data);
+	}
+
 	useEffect(() => {
-		async function loadDeliveries() {
-			const response = await api.get('/deliveries');
-
-			/* const data = response.data.map(delivery => {
-				let status;
-
-				if (delivery.signature) {
-					status = {
-						title: 'ENTREGUE',
-						color: '#2CA42B',
-						background: '#DFF0DF',
-					};
-				} else if (delivery.canceled_at) {
-					status = {
-						title: 'CANCELADA',
-						color: '#DE3B3B',
-						background: '#FAB0B0',
-					};
-				} else if (delivery.start_date) {
-					status = {
-						title: 'RETIRADA',
-						color: '#4D85EE',
-						background: '#BAD2FF',
-					};
-				} else {
-					status = {
-						title: 'PENDENTE',
-						color: '#C1BC35',
-						background: '#F0F0DF',
-					};
-				}
-
-				return {
-					...delivery,
-					status,
-				};
-			}); */
-
-			setDeliveries(response.data);
-		}
-
 		loadDeliveries();
 	}, []);
 
@@ -98,7 +63,11 @@ export default function Delivery() {
 						<strong>Ações</strong>
 					</section>
 					{deliveries.map(delivery => (
-						<DeliveryItem key={delivery.id} data={delivery} />
+						<DeliveryItem
+							updateDeliveries={loadDeliveries}
+							key={delivery.id}
+							data={delivery}
+						/>
 					))}
 				</Grid>
 			</Content>

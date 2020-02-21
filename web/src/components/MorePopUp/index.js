@@ -1,5 +1,8 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
+import PropTypes from 'prop-types';
+
+import { toast } from 'react-toastify';
 
 import {
 	MdMoreHoriz,
@@ -7,10 +10,30 @@ import {
 	MdEdit,
 	MdDeleteForever,
 } from 'react-icons/md';
+import { colors } from '~/styles/colors';
+
+import api from '~/services/api';
 
 import { PopUpButton, Container } from './styles';
 
-export default function MorePopUp() {
+export default function MorePopUp({ id, updateDeliveries }) {
+	async function handleDelete() {
+		const confirm = window.confirm('Você tem certeza que deseja deletar isso?');
+
+		if (!confirm) {
+			toast.error('Encomenda não apagada!');
+			return;
+		}
+
+		try {
+			await api.delete(`/deliveries/${id}`);
+			updateDeliveries();
+			toast.success('Encomenda apagada com sucesso!');
+		} catch (err) {
+			toast.error('Essa encomenda não pode ser deletada!');
+		}
+	}
+
 	return (
 		<Popup
 			trigger={
@@ -33,13 +56,13 @@ export default function MorePopUp() {
 				</div>
 				<div>
 					<button type="button">
-						<MdEdit color="#4D85EE" size={15} />
+						<MdEdit color={colors.info} size={15} />
 						<span>Editar</span>
 					</button>
 				</div>
 				<div>
-					<button type="button">
-						<MdDeleteForever color="#DE3B3B" size={15} />
+					<button onClick={handleDelete} type="button">
+						<MdDeleteForever color={colors.danger} size={15} />
 						<span>Excluir</span>
 					</button>
 				</div>
@@ -47,3 +70,8 @@ export default function MorePopUp() {
 		</Popup>
 	);
 }
+
+MorePopUp.propTypes = {
+	id: PropTypes.number.isRequired,
+	updateDeliveries: PropTypes.func.isRequired,
+};
