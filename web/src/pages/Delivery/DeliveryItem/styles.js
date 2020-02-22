@@ -11,11 +11,11 @@ export const Container = styled.div`
 	display: grid;
 	grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr 1.5fr 1fr 1fr;
 
-	small:last-child {
+	> small:last-child {
 		text-align: right;
 	}
 
-	small {
+	> small {
 		font-size: 16px;
 		color: #666;
 		text-align: left;

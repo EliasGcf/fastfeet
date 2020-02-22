@@ -1,16 +1,16 @@
 import React from 'react';
+import { MdEdit, MdDeleteForever } from 'react-icons/md';
+import { toast } from 'react-toastify';
+
 import PropTypes from 'prop-types';
 
-import { MdRemoveRedEye, MdEdit, MdDeleteForever } from 'react-icons/md';
-import { toast } from 'react-toastify';
 import More from '~/components/MorePopUp';
-
+import api from '~/services/api';
 import { statusColors, colors } from '~/styles/colors';
 
-import api from '~/services/api';
-import { Container } from './styles';
-
+import DeliveryModal from '../Modal';
 import Status from './DeliveryStatus';
+import { Container } from './styles';
 
 export default function DeliveryItem({ data, updateDeliveries }) {
 	async function handleDelete() {
@@ -44,10 +44,7 @@ export default function DeliveryItem({ data, updateDeliveries }) {
 			/>
 			<More>
 				<div>
-					<button type="button">
-						<MdRemoveRedEye color="#8E5BE8" size={15} />
-						<span>Visualizar</span>
-					</button>
+					<DeliveryModal data={data} />
 				</div>
 				<div>
 					<button type="button">

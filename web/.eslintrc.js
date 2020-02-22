@@ -25,6 +25,7 @@ module.exports = {
 		'react',
 		'prettier',
 		'react-hooks',
+		'eslint-plugin-import-helpers'
   ],
   rules: {
 		camelcase: "off",
@@ -39,7 +40,19 @@ module.exports = {
 		'react-hooks/exhaustive-deps': 'warn',
 		'react/jsx-props-no-spreading': 'off',
 		'no-param-reassign': 'off',
-		'no-alert': 'off'
+		'no-alert': 'off',
+		'import-helpers/order-imports': [
+			'warn',
+			{
+				newlinesBetween: 'always',
+				groups: [
+					'/^react/',
+					'module',
+					'/^~/',
+					[ 'parent',	'sibling', 'index' ]],
+				alphabetize: { order: 'asc', ignoreCase: true },
+			},
+	],
 	},
 	settings: {
 		'import/resolver': {

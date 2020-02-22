@@ -96,7 +96,15 @@ class DeliveryController {
 						{
 							model: Recipient,
 							as: 'recipient',
-							attributes: ['id', 'name', 'city', 'state'],
+							attributes: [
+								'id',
+								'name',
+								'street',
+								'number',
+								'city',
+								'state',
+								'zip_code',
+							],
 						},
 						{
 							model: Deliveryman,
@@ -124,7 +132,15 @@ class DeliveryController {
 						{
 							model: Recipient,
 							as: 'recipient',
-							attributes: ['id', 'name', 'city', 'state'],
+							attributes: [
+								'id',
+								'name',
+								'street',
+								'number',
+								'city',
+								'state',
+								'zip_code',
+							],
 						},
 						{
 							model: Deliveryman,

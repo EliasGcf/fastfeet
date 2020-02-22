@@ -1,19 +1,30 @@
 import React, { useState, useEffect } from 'react';
-
 import { MdAdd } from 'react-icons/md';
 
-import { Container, Content, Grid } from './styles';
+import { parseISO, format } from 'date-fns';
 
+import { IconButton } from '~/components/Button';
+import { SearchInput } from '~/components/Form';
+import HeaderPage from '~/components/HeaderPage';
 import api from '~/services/api';
 
-import HeaderPage from '~/components/HeaderPage';
-import { SearchInput } from '~/components/Form';
-import { IconButton } from '~/components/Button';
-
 import DeliveryItem from './DeliveryItem';
+import { Container, Content, Grid } from './styles';
 
 export default function Delivery() {
 	const [deliveries, setDeliveries] = useState([]);
+
+	function formatDates(data) {
+		return data.map(delivery => ({
+			...delivery,
+			start_dateFormated: delivery.start_date
+				? format(parseISO(delivery.start_date), 'dd/MM/yyyy')
+				: null,
+			end_dateFormated: delivery.end_date
+				? format(parseISO(delivery.end_date), 'dd/MM/yyyy')
+				: null,
+		}));
+	}
 
 	async function handleSearchDelivery(e) {
 		const response = await api.get('/deliveries', {
@@ -22,13 +33,17 @@ export default function Delivery() {
 			},
 		});
 
-		setDeliveries(response.data);
+		const data = formatDates(response.data);
+
+		setDeliveries(data);
 	}
 
 	async function loadDeliveries() {
 		const response = await api.get('/deliveries');
 
-		setDeliveries(response.data);
+		const data = formatDates(response.data);
+
+		setDeliveries(data);
 	}
 
 	useEffect(() => {
