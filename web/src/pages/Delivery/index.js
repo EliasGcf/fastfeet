@@ -5,8 +5,9 @@ import { parseISO, format } from 'date-fns';
 
 import { IconButton } from '~/components/Button';
 import { SearchInput } from '~/components/Form';
-import HeaderPage from '~/components/HeaderPage';
+import HeaderList from '~/components/HeaderList';
 import api from '~/services/api';
+import history from '~/services/history';
 
 import DeliveryItem from './DeliveryItem';
 import { Container, Content, Grid } from './styles';
@@ -53,7 +54,7 @@ export default function Delivery() {
 	return (
 		<Container>
 			<Content>
-				<HeaderPage title="Gerenciando encomendas">
+				<HeaderList title="Gerenciando encomendas">
 					<SearchInput
 						onChange={handleSearchDelivery}
 						type="text"
@@ -62,10 +63,10 @@ export default function Delivery() {
 					<IconButton
 						Icon={MdAdd}
 						title="CADASTRAR"
-						action={() => {}}
+						action={() => history.push('/deliveries/form')}
 						type="submit"
 					/>
-				</HeaderPage>
+				</HeaderList>
 
 				<Grid>
 					<section>

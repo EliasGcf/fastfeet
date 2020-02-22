@@ -33,7 +33,7 @@ export default function DeliveryModal({ data }) {
 				</div>
 			) : null}
 			{data.signature ? (
-				<div>
+				<div style={{ paddingBottom: '25px' }}>
 					<strong>Assinatura do destinatário</strong>
 					<img src={data.signature.url} alt="signature" />
 				</div>

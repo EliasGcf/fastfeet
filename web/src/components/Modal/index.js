@@ -20,7 +20,7 @@ export default function Modal({ children }) {
 			contentStyle={{
 				width: '450px',
 				borderRadius: '4px',
-				padding: '25px',
+				padding: '25px 25px 0px 25px',
 			}}
 			overlayStyle={{
 				background: 'rgb(0, 0, 0, 0.7)',
