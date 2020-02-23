@@ -40,4 +40,8 @@ export const Container = styled.div`
 	border-radius: 50%;
 
 	align-self: center;
+
+	span {
+		font-size: 16px;
+	}
 `;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Container } from './styles';
 
 export default function NamePhoto({ name }) {
@@ -8,9 +10,13 @@ export default function NamePhoto({ name }) {
 	return (
 		<Container number={Math.floor(Math.random() * (5 + 1))}>
 			<span>
-				{nameSplit[0][0]}
-				{nameSplit[1][0]}
+				{nameSplit?.[0]?.[0]}
+				{nameSplit?.[1]?.[0]}
 			</span>
 		</Container>
 	);
 }
+
+NamePhoto.propTypes = {
+	name: PropTypes.string.isRequired,
+};

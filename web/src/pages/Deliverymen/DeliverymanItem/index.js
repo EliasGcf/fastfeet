@@ -65,7 +65,7 @@ export default function DeliverymanItem({ data, updateDeliverymen }) {
 
 DeliverymanItem.propTypes = {
 	data: PropTypes.shape({
-		id: PropTypes.string,
+		id: PropTypes.number,
 		name: PropTypes.string,
 		email: PropTypes.string,
 		avatar: PropTypes.shape({

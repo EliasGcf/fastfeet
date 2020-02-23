@@ -148,6 +148,9 @@ export default function Form({ match }) {
 						name="product"
 						type="text"
 						placeholder="Nome do produto"
+						onKeyPress={e =>
+							e.key === 'Enter' ? formRef.current.submitForm() : null
+						}
 					/>
 				</UnForm>
 			</Content>
@@ -158,7 +161,7 @@ export default function Form({ match }) {
 Form.propTypes = {
 	match: PropTypes.shape({
 		params: PropTypes.shape({
-			id: PropTypes.string.isRequired,
+			id: PropTypes.string,
 		}).isRequired,
 	}).isRequired,
 };

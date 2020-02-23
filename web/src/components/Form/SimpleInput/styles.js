@@ -20,12 +20,25 @@ export const UnInput = styled.input`
 export const Error = styled.span`
 	color: ${colors.danger};
 	margin-top: 8px;
+
+	& + label {
+		margin-top: 8px;
+	}
 `;
 
 export const Label = styled.label`
-	color: #444;
-	font-weight: bold;
+	display: flex;
+	flex-direction: column;
 
-	text-align: left;
-	margin-bottom: 9px;
+	strong {
+		color: #444;
+		font-weight: bold;
+
+		text-align: left;
+		margin-bottom: 9px;
+	}
+
+	& + label {
+		margin-top: 18px;
+	}
 `;

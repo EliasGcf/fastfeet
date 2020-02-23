@@ -34,5 +34,9 @@ export const Content = styled.div`
 		input {
 			margin-bottom: 15px;
 		}
+
+		label {
+			margin: 0;
+		}
 	}
 `;

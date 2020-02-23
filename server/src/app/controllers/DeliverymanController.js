@@ -13,13 +13,14 @@ class DeliverymenController {
 			email: Yup.string()
 				.email()
 				.required(),
+			avatar_id: Yup.string().notRequired(),
 		});
 
 		if (!(await schema.isValid(req.body))) {
 			return res.status(400).json({ error: 'validation fails' });
 		}
 
-		const { name, email } = req.body;
+		const { name, email, avatar_id } = req.body;
 
 		const deliverymanExists = await Deliveryman.findOne({ where: { email } });
 
@@ -30,9 +31,30 @@ class DeliverymenController {
 			return res.status(400).json({ error: 'Delivery man already exists' });
 		}
 
-		const { id } = await Deliveryman.create({ name, email });
+		const { id } = await Deliveryman.create({ name, email, avatar_id });
 
-		return res.json({ id, name, email });
+		return res.json({ id, name, email, avatar_id });
+	}
+
+	async show(req, res) {
+		const { id } = req.params;
+
+		const deliveryman = await Deliveryman.findByPk(id, {
+			attributes: ['id', 'name', 'email'],
+			include: [
+				{
+					model: File,
+					as: 'avatar',
+					attributes: ['id', 'path', 'url'],
+				},
+			],
+		});
+
+		if (!deliveryman) {
+			return res.status(400).json({ error: 'Delivery man does not exists' });
+		}
+
+		return res.json(deliveryman);
 	}
 
 	async index(req, res) {

@@ -4,6 +4,7 @@ import { Switch } from 'react-router-dom';
 import Delivery from '~/pages/Delivery';
 import DeliveryForm from '~/pages/Delivery/Form';
 import Deliverymen from '~/pages/Deliverymen';
+import DeliverymenForm from '~/pages/Deliverymen/Form';
 import SingIn from '~/pages/SingIn';
 
 import Route from './Route';
@@ -22,7 +23,19 @@ export default function Routes() {
 				isPrivate
 			/>
 
-			<Route path="/deliverymen" component={Deliverymen} isPrivate />
+			<Route path="/deliverymen" exact component={Deliverymen} isPrivate />
+			<Route
+				path="/deliverymen/form"
+				exact
+				component={DeliverymenForm}
+				isPrivate
+			/>
+			<Route
+				path="/deliverymen/form/:id"
+				exact
+				component={DeliverymenForm}
+				isPrivate
+			/>
 		</Switch>
 	);
 }

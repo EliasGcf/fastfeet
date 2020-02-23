@@ -2,12 +2,11 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Form } from '@unform/web';
-import { SimpleInput } from '~/components/Form';
-import { SimpleButton } from '~/components/Button';
-
-import { signInRequest } from '~/store/modules/auth/actions';
 
 import logo from '~/assets/logo.svg';
+import { SimpleButton } from '~/components/Button';
+import { SimpleInput } from '~/components/Form';
+import { signInRequest } from '~/store/modules/auth/actions';
 
 // import { Container } from './styles';
 
