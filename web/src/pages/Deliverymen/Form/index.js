@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
@@ -11,19 +11,21 @@ import api from '~/services/api';
 
 import { Container, Content, UnForm } from './styles';
 
-export default function Form({ match }) {
+export default function DeliverymanForm({ match }) {
 	const { id } = match.params;
 	const formRef = useRef(null);
 
-	async function loadInitialData(deliverymanId) {
-		if (id) {
-			const response = await api.get(`/deliverymen/${deliverymanId}`);
+	useEffect(() => {
+		async function loadInitialData(deliverymanId) {
+			if (id) {
+				const response = await api.get(`/deliverymen/${deliverymanId}`);
 
-			formRef.current.setData(response.data);
-			formRef.current.setFieldValue('avatar', response?.data?.avatar?.url);
+				formRef.current.setData(response.data);
+				formRef.current.setFieldValue('avatar', response?.data?.avatar?.url);
+			}
 		}
-	}
-	loadInitialData(id);
+		loadInitialData(id);
+	}, [id]);
 
 	async function handleSubmit(data, { reset }) {
 		formRef.current.setErrors({});
@@ -106,7 +108,7 @@ export default function Form({ match }) {
 	);
 }
 
-Form.propTypes = {
+DeliverymanForm.propTypes = {
 	match: PropTypes.shape({
 		params: PropTypes.shape({
 			id: PropTypes.string,

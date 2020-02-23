@@ -18,17 +18,11 @@ export default function SimpleInput({ name, label, ...rest }) {
 	}, [fieldName, registerField]);
 
 	return (
-		<>
-			{label ? (
-				<Label htmlFor={fieldName}>
-					<strong>{label}</strong>
-					<UnInput ref={inputRef} defaultValue={defaultValue} {...rest} />
-				</Label>
-			) : (
-				<UnInput ref={inputRef} defaultValue={defaultValue} {...rest} />
-			)}
+		<Label htmlFor={fieldName}>
+			<strong>{label}</strong>
+			<UnInput ref={inputRef} defaultValue={defaultValue} {...rest} />
 			{error && <Error>{error}</Error>}
-		</>
+		</Label>
 	);
 }
 

@@ -40,6 +40,7 @@ routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter
 routes.post('/recipients', RecipientController.store);
 routes.put('/recipients/:id', RecipientController.update);
 routes.get('/recipients', RecipientController.index);
+routes.get('/recipients/:id', RecipientController.show);
 routes.delete('/recipients/:id', RecipientController.destroy);
 
 // Rotas de entregadores

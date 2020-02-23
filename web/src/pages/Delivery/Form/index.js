@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
@@ -12,26 +12,28 @@ import history from '~/services/history';
 
 import { Container, Content, UnForm } from './styles';
 
-export default function Form({ match }) {
+export default function DeliveryForm({ match }) {
 	const { id } = match.params;
 	const formRef = useRef(null);
 
-	async function loadInitialData(deliveryId) {
-		if (id) {
-			const response = await api.get(`/deliveries/${deliveryId}`);
+	useEffect(() => {
+		async function loadInitialData(deliveryId) {
+			if (id) {
+				const response = await api.get(`/deliveries/${deliveryId}`);
 
-			formRef.current.setData(response.data);
-			formRef.current.setFieldValue('recipient_id', {
-				value: response.data.recipient.id,
-				label: response.data.recipient.name,
-			});
-			formRef.current.setFieldValue('deliveryman_id', {
-				value: response.data.deliveryman.id,
-				label: response.data.deliveryman.name,
-			});
+				formRef.current.setData(response.data);
+				formRef.current.setFieldValue('recipient_id', {
+					value: response.data.recipient.id,
+					label: response.data.recipient.name,
+				});
+				formRef.current.setFieldValue('deliveryman_id', {
+					value: response.data.deliveryman.id,
+					label: response.data.deliveryman.name,
+				});
+			}
 		}
-	}
-	loadInitialData(id);
+		loadInitialData(id);
+	}, [id]);
 
 	const customStylesSelectInput = {
 		control: provided => ({
@@ -158,7 +160,7 @@ export default function Form({ match }) {
 	);
 }
 
-Form.propTypes = {
+DeliveryForm.propTypes = {
 	match: PropTypes.shape({
 		params: PropTypes.shape({
 			id: PropTypes.string,
