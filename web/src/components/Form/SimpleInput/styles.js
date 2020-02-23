@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { colors } from '~/styles/colors';
+
 export const UnInput = styled.input`
 	padding: 12px 15px;
 
@@ -15,7 +17,10 @@ export const UnInput = styled.input`
 	border: 1px solid #ddd;
 `;
 
-export const Error = styled.span``;
+export const Error = styled.span`
+	color: ${colors.danger};
+	margin-top: 8px;
+`;
 
 export const Label = styled.label`
 	color: #444;

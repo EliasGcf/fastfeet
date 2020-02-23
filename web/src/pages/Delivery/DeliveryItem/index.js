@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 
 import More from '~/components/MorePopUp';
 import api from '~/services/api';
+import history from '~/services/history';
 import { statusColors, colors } from '~/styles/colors';
 
 import DeliveryModal from '../Modal';
@@ -47,7 +48,10 @@ export default function DeliveryItem({ data, updateDeliveries }) {
 					<DeliveryModal data={data} />
 				</div>
 				<div>
-					<button type="button">
+					<button
+						onClick={() => history.push(`/deliveries/form/${data.id}`)}
+						type="button"
+					>
 						<MdEdit color={colors.info} size={15} />
 						<span>Editar</span>
 					</button>

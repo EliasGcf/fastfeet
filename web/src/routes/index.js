@@ -13,7 +13,13 @@ export default function Routes() {
 			<Route path="/" exact component={SingIn} />
 
 			<Route path="/deliveries" exact component={Delivery} isPrivate />
-			<Route path="/deliveries/form" component={DeliveryForm} isPrivate />
+			<Route path="/deliveries/form" exact component={DeliveryForm} isPrivate />
+			<Route
+				path="/deliveries/form/:id"
+				exact
+				component={DeliveryForm}
+				isPrivate
+			/>
 		</Switch>
 	);
 }

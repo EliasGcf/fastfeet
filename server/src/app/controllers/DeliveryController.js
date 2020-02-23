@@ -73,6 +73,32 @@ class DeliveryController {
 		});
 	}
 
+	async show(req, res) {
+		const { id } = req.params;
+
+		const delivery = await Delivery.findByPk(id, {
+			attributes: ['id', 'product'],
+			include: [
+				{
+					model: Recipient,
+					as: 'recipient',
+					attributes: ['id', 'name'],
+				},
+				{
+					model: Deliveryman,
+					as: 'deliveryman',
+					attributes: ['id', 'name'],
+				},
+			],
+		});
+
+		if (!delivery) {
+			return res.status(400).json({ error: 'Delivery does not exists' });
+		}
+
+		return res.json(delivery);
+	}
+
 	async index(req, res) {
 		const { q: productName } = req.query;
 
