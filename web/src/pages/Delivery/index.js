@@ -64,7 +64,7 @@ export default function Delivery() {
 						Icon={MdAdd}
 						title="CADASTRAR"
 						action={() => history.push('/deliveries/form')}
-						type="submit"
+						type="button"
 					/>
 				</HeaderList>
 

@@ -9,7 +9,14 @@ export const Container = styled.div`
 	padding-right: 13px;
 
 	display: grid;
-	grid-template-columns: 0.5fr 1.5fr 1fr 1.5fr 1.5fr 1fr 1fr;
+	grid-template-columns: 1.2fr 1.1fr 2fr 2fr 1fr;
+
+	img {
+		height: 35px;
+		width: 35px;
+		align-self: center;
+		border-radius: 50%;
+	}
 
 	> small:last-child {
 		text-align: right;
@@ -36,7 +43,6 @@ export const MoreConainer = styled.div`
 	> div {
 		display: flex;
 		align-items: center;
-		padding-bottom: 6px;
 
 		button {
 			background: none;
@@ -53,14 +59,14 @@ export const MoreConainer = styled.div`
 			font-size: 16px;
 			color: #999;
 		}
+	}
 
-		:nth-last-child(-n + 2) {
-			padding-top: 6px;
-			border-top: 1px solid #eee;
-		}
+	div:first-child {
+		padding-bottom: 9px;
+		border-bottom: 1px solid #eee;
+	}
 
-		:nth-last-child(1) {
-			padding-bottom: 0;
-		}
+	div:nth-last-child(1) {
+		padding-top: 9px;
 	}
 `;

@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 
 import Delivery from '~/pages/Delivery';
 import DeliveryForm from '~/pages/Delivery/Form';
+import Deliverymen from '~/pages/Deliverymen';
 import SingIn from '~/pages/SingIn';
 
 import Route from './Route';
@@ -20,6 +21,8 @@ export default function Routes() {
 				component={DeliveryForm}
 				isPrivate
 			/>
+
+			<Route path="/deliverymen" component={Deliverymen} isPrivate />
 		</Switch>
 	);
 }

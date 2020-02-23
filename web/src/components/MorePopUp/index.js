@@ -1,10 +1,10 @@
 import React from 'react';
+import { MdMoreHoriz } from 'react-icons/md';
 import Popup from 'reactjs-popup';
+
 import PropTypes from 'prop-types';
 
-import { MdMoreHoriz } from 'react-icons/md';
-
-import { PopUpButton, Container } from './styles';
+import { PopUpButton } from './styles';
 
 export default function MorePopUp({ children }) {
 	return (
@@ -20,11 +20,11 @@ export default function MorePopUp({ children }) {
 				borderRadius: '4px',
 			}}
 		>
-			<Container>{children}</Container>
+			{children}
 		</Popup>
 	);
 }
 
 MorePopUp.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	children: PropTypes.element.isRequired,
 };

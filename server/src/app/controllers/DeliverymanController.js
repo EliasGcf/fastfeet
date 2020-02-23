@@ -45,6 +45,7 @@ class DeliverymenController {
 							[Op.like]: `${deliverymanName}%`,
 						},
 					},
+					order: ['id'],
 					attributes: ['id', 'name', 'email'],
 					include: [
 						{
@@ -56,6 +57,7 @@ class DeliverymenController {
 			  })
 			: await Deliveryman.findAll({
 					attributes: ['id', 'name', 'email'],
+					order: ['id'],
 					include: [
 						{
 							model: File,

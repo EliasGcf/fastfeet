@@ -5,15 +5,14 @@ import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 
 import More from '~/components/MorePopUp';
+import NamePhoto from '~/components/NamePhoto';
 import api from '~/services/api';
 import history from '~/services/history';
-import { statusColors, colors } from '~/styles/colors';
+import { colors } from '~/styles/colors';
 
-import DeliveryModal from '../Modal';
-import Status from './DeliveryStatus';
 import { Container, MoreConainer } from './styles';
 
-export default function DeliveryItem({ data, updateDeliveries }) {
+export default function DeliverymanItem({ data, updateDeliverymen }) {
 	async function handleDelete() {
 		const confirm = window.confirm('Você tem certeza que deseja deletar isso?');
 
@@ -23,34 +22,29 @@ export default function DeliveryItem({ data, updateDeliveries }) {
 		}
 
 		try {
-			await api.delete(`/deliveries/${data.id}`);
-			updateDeliveries();
-			toast.success('Encomenda apagada com sucesso!');
+			await api.delete(`/deliverymen/${data.id}`);
+			updateDeliverymen();
+			toast.success('Entregador apagado com sucesso!');
 		} catch (err) {
-			toast.error('Essa encomenda não pode ser deletada!');
+			toast.error('Esse entregador ainda possui encomendas para entregar!');
 		}
 	}
 
 	return (
 		<Container>
 			<small>#{data.id}</small>
-			<small>{data.recipient.name}</small>
-			<small>{data.product}</small>
-			<small>{data.recipient.city}</small>
-			<small>{data.recipient.state}</small>
-			<Status
-				text={data.status}
-				color={statusColors[data.status].color}
-				background={statusColors[data.status].background}
-			/>
+			{data.avatar ? (
+				<img src={data?.avatar?.url} alt="AvatarUrl" />
+			) : (
+				<NamePhoto name={data.name} />
+			)}
+			<small>{data.name}</small>
+			<small>{data.email}</small>
 			<More>
 				<MoreConainer>
 					<div>
-						<DeliveryModal data={data} />
-					</div>
-					<div>
 						<button
-							onClick={() => history.push(`/deliveries/form/${data.id}`)}
+							onClick={() => history.push(`/deliverymen/form/${data.id}`)}
 							type="button"
 						>
 							<MdEdit color={colors.info} size={15} />
@@ -69,16 +63,14 @@ export default function DeliveryItem({ data, updateDeliveries }) {
 	);
 }
 
-DeliveryItem.propTypes = {
-	updateDeliveries: PropTypes.func.isRequired,
+DeliverymanItem.propTypes = {
 	data: PropTypes.shape({
-		id: PropTypes.number,
-		product: PropTypes.string,
-		recipient: PropTypes.shape({
-			name: PropTypes.string,
-			city: PropTypes.string,
-			state: PropTypes.string,
+		id: PropTypes.string,
+		name: PropTypes.string,
+		email: PropTypes.string,
+		avatar: PropTypes.shape({
+			url: PropTypes.string,
 		}),
-		status: PropTypes.string,
 	}).isRequired,
+	updateDeliverymen: PropTypes.func.isRequired,
 };
