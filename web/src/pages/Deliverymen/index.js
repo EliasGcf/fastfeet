@@ -8,24 +8,33 @@ import api from '~/services/api';
 import history from '~/services/history';
 
 import DeliverymanItem from './DeliverymanItem';
-import { Container, Content, Grid } from './styles';
+import { Container, Content, Grid, Button } from './styles';
 
 export default function Deliverymen() {
 	const [deliverymen, setDeliverymen] = useState([]);
+	const [page, setPage] = useState(1);
 
 	async function loadDeliverymen() {
-		const response = await api.get('/deliverymen');
+		const response = await api.get('/deliverymen', {
+			params: {
+				page,
+			},
+		});
 
 		setDeliverymen(response.data);
 	}
+
 	useEffect(() => {
 		loadDeliverymen();
-	}, []);
+	}, [page]); //eslint-disable-line
 
 	async function handleSearchDeliveryman(e) {
+		setPage(1);
+
 		const response = await api.get('/deliverymen', {
 			params: {
 				q: e.target.value,
+				page,
 			},
 		});
 
@@ -65,6 +74,24 @@ export default function Deliverymen() {
 						/>
 					))}
 				</Grid>
+				{deliverymen.length ? (
+					<section>
+						<Button
+							disabled={page === 1}
+							onClick={() => setPage(page - 1)}
+							type="button"
+						>
+							voltar
+						</Button>
+						<Button
+							disabled={deliverymen.length < 5}
+							type="button"
+							onClick={() => setPage(page + 1)}
+						>
+							proximo
+						</Button>
+					</section>
+				) : null}
 			</Content>
 		</Container>
 	);

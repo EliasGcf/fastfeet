@@ -36,13 +36,13 @@ class DeliverymenController {
 	}
 
 	async index(req, res) {
-		const { q: deliverymanName } = req.query;
+		const { q: deliverymanName, page = 1 } = req.query;
 
 		const response = deliverymanName
 			? await Deliveryman.findAll({
 					where: {
 						name: {
-							[Op.like]: `${deliverymanName}%`,
+							[Op.iLike]: `${deliverymanName}%`,
 						},
 					},
 					order: ['id'],
@@ -58,6 +58,8 @@ class DeliverymenController {
 			: await Deliveryman.findAll({
 					attributes: ['id', 'name', 'email'],
 					order: ['id'],
+					limit: 5,
+					offset: (page - 1) * 5,
 					include: [
 						{
 							model: File,

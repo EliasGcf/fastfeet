@@ -100,7 +100,7 @@ class DeliveryController {
 	}
 
 	async index(req, res) {
-		const { q: productName } = req.query;
+		const { q: productName, page = 1 } = req.query;
 
 		const response = productName
 			? await Delivery.findAll({
@@ -154,6 +154,8 @@ class DeliveryController {
 						'canceled_at',
 					],
 					order: ['id'],
+					limit: 5,
+					offset: (page - 1) * 5,
 					include: [
 						{
 							model: Recipient,

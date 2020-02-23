@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { SimpleButton } from '~/components/Button';
+
 export const Container = styled.div`
 	display: flex;
 	justify-content: center;
@@ -10,6 +12,12 @@ export const Container = styled.div`
 export const Content = styled.div`
 	width: 100%;
 	max-width: 1200px;
+
+	> section {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 15px;
+	}
 `;
 
 export const Grid = styled.div`
@@ -35,5 +43,15 @@ export const Grid = styled.div`
 
 	> div + div {
 		margin-top: 20px;
+	}
+`;
+
+export const Button = styled(SimpleButton)`
+	width: 100px;
+	height: 36px;
+
+	&:disabled {
+		cursor: not-allowed;
+		background: #666;
 	}
 `;

@@ -10,10 +10,11 @@ import api from '~/services/api';
 import history from '~/services/history';
 
 import DeliveryItem from './DeliveryItem';
-import { Container, Content, Grid } from './styles';
+import { Container, Content, Grid, Button } from './styles';
 
 export default function Delivery() {
 	const [deliveries, setDeliveries] = useState([]);
+	const [page, setPage] = useState(1);
 
 	function formatDates(data) {
 		return data.map(delivery => ({
@@ -28,9 +29,11 @@ export default function Delivery() {
 	}
 
 	async function handleSearchDelivery(e) {
+		setPage(1);
 		const response = await api.get('/deliveries', {
 			params: {
 				q: e.target.value,
+				page,
 			},
 		});
 
@@ -40,7 +43,11 @@ export default function Delivery() {
 	}
 
 	async function loadDeliveries() {
-		const response = await api.get('/deliveries');
+		const response = await api.get('/deliveries', {
+			params: {
+				page,
+			},
+		});
 
 		const data = formatDates(response.data);
 
@@ -49,7 +56,7 @@ export default function Delivery() {
 
 	useEffect(() => {
 		loadDeliveries();
-	}, []);
+	}, [page]); //eslint-disable-line
 
 	return (
 		<Container>
@@ -86,6 +93,24 @@ export default function Delivery() {
 						/>
 					))}
 				</Grid>
+				{deliveries.length ? (
+					<section>
+						<Button
+							disabled={page === 1}
+							onClick={() => setPage(page - 1)}
+							type="button"
+						>
+							voltar
+						</Button>
+						<Button
+							disabled={deliveries.length < 5}
+							type="button"
+							onClick={() => setPage(page + 1)}
+						>
+							proximo
+						</Button>
+					</section>
+				) : null}
 			</Content>
 		</Container>
 	);
