@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { Op } from 'sequelize';
 import Recipient from '../models/Recipient';
+import Delivery from '../models/Delivery';
 
 class RecipientController {
 	async store(req, res) {
@@ -131,6 +132,32 @@ class RecipientController {
 			  });
 
 		return res.json(response);
+	}
+
+	async destroy(req, res) {
+		const { id } = req.params;
+
+		const recipient = await Recipient.findByPk(id);
+
+		if (!recipient) {
+			return res.status(400).json({ error: 'Recipient does not exists' });
+		}
+
+		const deliveries = await Delivery.findOne({
+			where: {
+				recipient_id: recipient.id,
+				signature_id: null,
+			},
+		});
+
+		if (deliveries) {
+			return res
+				.status(400)
+				.json({ error: 'This Recipient still has an delivery to receive' });
+		}
+
+		await recipient.destroy();
+		return res.json({});
 	}
 }
 

@@ -5,6 +5,7 @@ import Delivery from '~/pages/Delivery';
 import DeliveryForm from '~/pages/Delivery/Form';
 import Deliverymen from '~/pages/Deliverymen';
 import DeliverymenForm from '~/pages/Deliverymen/Form';
+import Recipients from '~/pages/Recipients';
 import SingIn from '~/pages/SingIn';
 
 import Route from './Route';
@@ -36,6 +37,8 @@ export default function Routes() {
 				component={DeliverymenForm}
 				isPrivate
 			/>
+
+			<Route path="/recipients" exact component={Recipients} isPrivate />
 		</Switch>
 	);
 }

@@ -122,6 +122,7 @@ class DeliveryController {
 						{
 							model: Recipient,
 							as: 'recipient',
+							paranoid: false,
 							attributes: [
 								'id',
 								'name',
@@ -159,6 +160,7 @@ class DeliveryController {
 					include: [
 						{
 							model: Recipient,
+							paranoid: false,
 							as: 'recipient',
 							attributes: [
 								'id',

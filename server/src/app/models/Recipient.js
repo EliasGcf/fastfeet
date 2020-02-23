@@ -15,6 +15,7 @@ class Recipient extends Model {
 			},
 			{
 				sequelize,
+				paranoid: true,
 			}
 		);
 
