@@ -74,24 +74,22 @@ export default function Deliverymen() {
 						/>
 					))}
 				</Grid>
-				{deliverymen.length ? (
-					<section>
-						<Button
-							disabled={page === 1}
-							onClick={() => setPage(page - 1)}
-							type="button"
-						>
-							voltar
-						</Button>
-						<Button
-							disabled={deliverymen.length < 5}
-							type="button"
-							onClick={() => setPage(page + 1)}
-						>
-							proximo
-						</Button>
-					</section>
-				) : null}
+				<section>
+					<Button
+						disabled={page === 1}
+						onClick={() => setPage(page - 1)}
+						type="button"
+					>
+						voltar
+					</Button>
+					<Button
+						disabled={deliverymen.length < 5}
+						type="button"
+						onClick={() => setPage(page + 1)}
+					>
+						proximo
+					</Button>
+				</section>
 			</Content>
 		</Container>
 	);

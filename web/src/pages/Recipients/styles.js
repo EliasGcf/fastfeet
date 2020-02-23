@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { SimpleButton } from '~/components/Button';
+
 export const Container = styled.div`
 	display: flex;
 	justify-content: center;
@@ -19,6 +21,7 @@ export const Content = styled.div`
 `;
 
 export const Grid = styled.div`
+	height: 400px;
 	> section {
 		display: grid;
 
@@ -41,5 +44,15 @@ export const Grid = styled.div`
 
 	> div + div {
 		margin-top: 20px;
+	}
+`;
+
+export const Button = styled(SimpleButton)`
+	width: 100px;
+	height: 36px;
+
+	&:disabled {
+		cursor: not-allowed;
+		background: #666;
 	}
 `;

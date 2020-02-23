@@ -21,6 +21,7 @@ export const Content = styled.div`
 `;
 
 export const Grid = styled.div`
+	height: 400px;
 	> section {
 		display: grid;
 

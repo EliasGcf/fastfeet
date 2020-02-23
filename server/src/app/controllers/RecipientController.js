@@ -98,13 +98,13 @@ class RecipientController {
 	}
 
 	async index(req, res) {
-		const { q: recipientName } = req.query;
+		const { q: recipientName, page = 1 } = req.query;
 
 		const response = recipientName
 			? await Recipient.findAll({
 					where: {
 						name: {
-							[Op.like]: `${recipientName}%`,
+							[Op.iLike]: `${recipientName}%`,
 						},
 					},
 					attributes: [
@@ -129,6 +129,8 @@ class RecipientController {
 						'city',
 						'zip_code',
 					],
+					limit: 5,
+					offset: (page - 1) * 5,
 			  });
 
 		return res.json(response);
