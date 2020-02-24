@@ -34,6 +34,12 @@ class DeliveryProblemController {
 				.json({ error: 'This delivery has not been withdrawn' });
 		}
 
+		if (delivery.canceled_at) {
+			return res
+				.status(400)
+				.json({ error: 'This deliery already be canceled' });
+		}
+
 		const { description } = req.body;
 
 		const deliveryProblem = await DeliveryProblem.create({
@@ -45,7 +51,10 @@ class DeliveryProblemController {
 	}
 
 	async index(req, res) {
-		const deliveryProblems = await DeliveryProblem.find();
+		const { page = 1 } = req.query;
+		const deliveryProblems = await DeliveryProblem.find()
+			.skip((page - 1) * 5)
+			.limit(5);
 
 		/* const filterDeliveryId = [
 			...new Set(deliveryProblems.map(delivery => delivery.delivery_id)),

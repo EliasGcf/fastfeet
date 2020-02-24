@@ -4,19 +4,24 @@ import HeaderList from '~/components/HeaderList';
 import api from '~/services/api';
 
 import ProblemItem from './ProblemItem';
-import { Container, Content, Grid } from './styles';
+import { Container, Content, Grid, Button } from './styles';
 
 export default function Problems() {
+	const [page, setPage] = useState(1);
 	const [problems, setProblems] = useState([]);
 
 	async function loadProblems() {
-		const response = await api.get('/deliveries/problems');
+		const response = await api.get('/deliveries/problems', {
+			params: {
+				page,
+			},
+		});
 
 		setProblems(response.data);
 	}
 	useEffect(() => {
 		loadProblems();
-	}, []);
+	}, [page]); //eslint-disable-line
 
 	return (
 		<Container>
@@ -36,22 +41,22 @@ export default function Problems() {
 						/>
 					))}
 				</Grid>
-				{/* <section>
-				<Button
-					disabled={page === 1}
-					onClick={() => setPage(page - 1)}
-					type="button"
-				>
-					voltar
-				</Button>
-				<Button
-					disabled={recipients.length < 5}
-					type="button"
-					onClick={() => setPage(page + 1)}
-				>
-					proximo
-				</Button>
-			</section> */}
+				<section>
+					<Button
+						disabled={page === 1}
+						onClick={() => setPage(page - 1)}
+						type="button"
+					>
+						voltar
+					</Button>
+					<Button
+						disabled={problems.length < 5}
+						type="button"
+						onClick={() => setPage(page + 1)}
+					>
+						proximo
+					</Button>
+				</section>
 			</Content>
 		</Container>
 	);
