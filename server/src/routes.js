@@ -34,6 +34,8 @@ routes.put(
 
 routes.post('/delivery/:id/problems', DeliveryProblem.store);
 
+routes.get('/deliverymen/:id', DeliverymanController.show);
+
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 
 // Rotas de destinatarios
@@ -46,7 +48,6 @@ routes.delete('/recipients/:id', RecipientController.destroy);
 // Rotas de entregadores
 routes.post('/deliverymen', DeliverymanController.store);
 routes.get('/deliverymen', DeliverymanController.index);
-routes.get('/deliverymen/:id', DeliverymanController.show);
 routes.put('/deliverymen/:id', DeliverymanController.update);
 routes.delete('/deliverymen/:id', DeliverymanController.destroy);
 
