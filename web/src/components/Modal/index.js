@@ -4,8 +4,6 @@ import Popup from 'reactjs-popup';
 
 import PropTypes from 'prop-types';
 
-import { Container } from './styles';
-
 export default function Modal({ children }) {
 	return (
 		<Popup
@@ -27,11 +25,11 @@ export default function Modal({ children }) {
 				border: 'rgb(0, 0, 0, 0.7)',
 			}}
 		>
-			<Container>{children}</Container>
+			{children}
 		</Popup>
 	);
 }
 
 Modal.propTypes = {
-	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	children: PropTypes.element.isRequired,
 };

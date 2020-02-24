@@ -5,6 +5,7 @@ import Delivery from '~/pages/Delivery';
 import DeliveryForm from '~/pages/Delivery/Form';
 import Deliverymen from '~/pages/Deliverymen';
 import DeliverymenForm from '~/pages/Deliverymen/Form';
+import Problems from '~/pages/Problems';
 import Recipients from '~/pages/Recipients';
 import RecipientsForm from '~/pages/Recipients/Form';
 import SingIn from '~/pages/SingIn';
@@ -52,6 +53,8 @@ export default function Routes() {
 				component={RecipientsForm}
 				isPrivate
 			/>
+
+			<Route path="/problems" component={Problems} isPrivate />
 		</Switch>
 	);
 }

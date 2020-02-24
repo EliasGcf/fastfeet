@@ -41,6 +41,7 @@ module.exports = {
 		'react/jsx-props-no-spreading': 'off',
 		'no-param-reassign': 'off',
 		'no-alert': 'off',
+		'no-underscore-dangle': 'off',
 		'import-helpers/order-imports': [
 			'warn',
 			{

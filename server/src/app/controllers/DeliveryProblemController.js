@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import Delivery from '../models/Delivery';
 import Recipient from '../models/Recipient';
 import Deliveryman from '../models/Deliveryman';
-import File from '../models/File';
+// import File from '../models/File';
 
 import Queue from '../../lib/Queue';
 import CancelationDeliveryMail from '../jobs/CancelationDeliveryMail';
@@ -28,6 +28,12 @@ class DeliveryProblemController {
 			return res.status(400).json({ error: 'Delivery does not exists' });
 		}
 
+		if (!delivery.start_date) {
+			return res
+				.status(400)
+				.json({ error: 'This delivery has not been withdrawn' });
+		}
+
 		const { description } = req.body;
 
 		const deliveryProblem = await DeliveryProblem.create({
@@ -41,7 +47,7 @@ class DeliveryProblemController {
 	async index(req, res) {
 		const deliveryProblems = await DeliveryProblem.find();
 
-		const filterDeliveryId = [
+		/* const filterDeliveryId = [
 			...new Set(deliveryProblems.map(delivery => delivery.delivery_id)),
 		];
 
@@ -74,9 +80,9 @@ class DeliveryProblemController {
 					],
 				})
 			)
-		);
+		); */
 
-		return res.json(deliveries);
+		return res.json(deliveryProblems);
 	}
 
 	async show(req, res) {
@@ -113,6 +119,7 @@ class DeliveryProblemController {
 		});
 
 		await delivery.update({ canceled_at: new Date(), status: 'CANCELADA' });
+		await DeliveryProblem.findByIdAndDelete(id);
 
 		await Queue.add(CancelationDeliveryMail.key, {
 			deliveryman: delivery.deliveryman,

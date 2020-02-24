@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { PopUpButton } from './styles';
 
-export default function MorePopUp({ children }) {
+export default function MorePopUp({ children, ...rest }) {
 	return (
 		<Popup
 			trigger={
@@ -19,6 +19,7 @@ export default function MorePopUp({ children }) {
 				width: '150px',
 				borderRadius: '4px',
 			}}
+			{...rest}
 		>
 			{children}
 		</Popup>

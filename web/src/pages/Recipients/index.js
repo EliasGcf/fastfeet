@@ -64,11 +64,11 @@ export default function Recipients() {
 						<strong>Endereço</strong>
 						<strong>Ações</strong>
 					</section>
-					{recipients.map(delivery => (
+					{recipients.map(recipient => (
 						<RecipientItem
 							updateRecipients={loadRecipients}
-							key={delivery.id}
-							data={delivery}
+							key={recipient.id}
+							data={recipient}
 						/>
 					))}
 				</Grid>

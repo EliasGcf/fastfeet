@@ -8,12 +8,17 @@ export default function HeaderList({ title, children }) {
 	return (
 		<Container>
 			<h1>{title}</h1>
-			<Content>{children}</Content>
+
+			{children && <Content>{children}</Content>}
 		</Container>
 	);
 }
 
 HeaderList.propTypes = {
 	title: PropTypes.string.isRequired,
-	children: PropTypes.arrayOf(PropTypes.element).isRequired,
+	children: PropTypes.arrayOf(PropTypes.element),
+};
+
+HeaderList.defaultProps = {
+	children: null,
 };

@@ -50,15 +50,15 @@ routes.get('/deliverymen/:id', DeliverymanController.show);
 routes.put('/deliverymen/:id', DeliverymanController.update);
 routes.delete('/deliverymen/:id', DeliverymanController.destroy);
 
+routes.get('/deliveries/problems', DeliveryProblem.index);
+routes.get('/delivery/:id/problems', DeliveryProblem.show);
+
 // Rotas de encomendas
 routes.post('/deliveries', DeliveryController.store);
 routes.get('/deliveries', DeliveryController.index);
 routes.get('/deliveries/:id', DeliveryController.show);
 routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.destroy);
-
-routes.get('/deliveries/problems', DeliveryProblem.index);
-routes.get('/delivery/:id/problems', DeliveryProblem.show);
 
 routes.delete('/problem/:id/cancel-delivery', DeliveryProblem.destroy);
 
