@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 export const Container = styled(BaseButton)`
 	height: 46px;
 	border-radius: 4px;
+
 	align-items: center;
 	justify-content: center;
 `;
