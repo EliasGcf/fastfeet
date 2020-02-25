@@ -2,7 +2,7 @@ import React from 'react';
 
 // import PropTypes from 'prop-types';
 
-import { Container, Text } from './styles';
+import { Container, TextPhoto } from './styles';
 
 export default function NamePhoto({ name }) {
 	const nameSplit = name.split(' ');
@@ -11,10 +11,10 @@ export default function NamePhoto({ name }) {
 
 	return (
 		<Container number={number}>
-			<Text number={number}>
+			<TextPhoto number={number}>
 				{nameSplit?.[0]?.[0]}
 				{nameSplit?.[1]?.[0]}
-			</Text>
+			</TextPhoto>
 		</Container>
 	);
 }

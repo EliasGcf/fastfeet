@@ -10,6 +10,7 @@ export const Container = styled.View`
 export const TInput = styled.TextInput.attrs({
 	placeholderTextColor: '#999',
 })`
+	font-family: 'Roboto-Regular';
 	height: 45px;
 	margin-left: 20px;
 `;

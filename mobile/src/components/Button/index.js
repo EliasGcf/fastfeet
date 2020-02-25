@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import { Container, Text } from './styles';
+import { Container, TextButton } from './styles';
 
 export default function Button({ children, loading, ...rest }) {
 	return (
@@ -9,7 +9,7 @@ export default function Button({ children, loading, ...rest }) {
 			{loading ? (
 				<ActivityIndicator size="small" color="#fff" />
 			) : (
-				<Text>{children}</Text>
+				<TextButton>{children}</TextButton>
 			)}
 		</Container>
 	);

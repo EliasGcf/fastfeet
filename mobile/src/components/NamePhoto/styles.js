@@ -1,5 +1,7 @@
 import styled from 'styled-components/native';
 
+import Text from '../Text';
+
 const colors = [
 	{
 		color: '#A28FD0',
@@ -40,7 +42,7 @@ export const Container = styled.View`
 	align-self: center;
 `;
 
-export const Text = styled.Text`
+export const TextPhoto = styled(Text)`
 	font-size: 31px;
 	color: ${props => colors[props.number].color};
 `;
