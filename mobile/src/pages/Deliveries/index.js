@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Avatar from '~/components/Avatar';
+import Delivery from '~/components/Delivey';
 import NamePhoto from '~/components/NamePhoto';
+import api from '~/services/api';
 import { signOut } from '~/store/modules/auth/actions';
 import colors from '~/styles/colors';
 
@@ -13,26 +16,60 @@ import {
 	Name,
 	ActionContainer,
 	TitleContainer,
+	Menu,
+	MenuTitle,
+	Options,
+	Option,
+	List,
 } from './styles';
 
 export default function Deliveries() {
+	const [deliveries, setDeliveries] = useState([]);
+	const [typeDeliveries, setTypeDeliveries] = useState('PENDENTES');
+
 	const dispatch = useDispatch();
-	const profile = useSelector(state => state.user.profile);
+	const profile = useSelector(state => state?.user?.profile);
+	const auth = useSelector(state => state.auth);
 
 	function handleLogout() {
 		dispatch(signOut());
 	}
 
+	function handlePending() {
+		setTypeDeliveries('PENDENTES');
+	}
+
+	function handleDelivered() {
+		setTypeDeliveries('ENTREGUES');
+	}
+
+	useEffect(() => {
+		async function loadDeliveries() {
+			const response =
+				typeDeliveries === 'PENDENTES'
+					? await api.get(`/deliveryman/${auth.id}`)
+					: await api.get(`/deliveryman/${auth.id}/deliveries`);
+
+			setDeliveries(response.data);
+		}
+
+		loadDeliveries();
+	}, [auth.id, typeDeliveries]);
+
 	return (
 		<Container>
 			<Profile>
 				<ActionContainer>
-					<NamePhoto name={profile.name} />
+					{profile?.avatar ? (
+						<Avatar source={{ uri: profile?.avatar?.url }} />
+					) : (
+						<NamePhoto name={profile?.name} />
+					)}
 				</ActionContainer>
 
 				<TitleContainer>
 					<Welcome>Bem vindo de volta,</Welcome>
-					<Name>{profile.name}</Name>
+					<Name>{profile?.name}</Name>
 				</TitleContainer>
 
 				<ActionContainer>
@@ -44,6 +81,33 @@ export default function Deliveries() {
 					/>
 				</ActionContainer>
 			</Profile>
+
+			<Menu>
+				<MenuTitle>Entregas</MenuTitle>
+				<Options>
+					<Option
+						style={{
+							marginRight: 15,
+						}}
+						onPress={handlePending}
+						selected={typeDeliveries === 'PENDENTES'}
+					>
+						Pendentes
+					</Option>
+					<Option
+						selected={typeDeliveries === 'ENTREGUES'}
+						onPress={handleDelivered}
+					>
+						Entregues
+					</Option>
+				</Options>
+			</Menu>
+
+			<List
+				data={deliveries}
+				keyExtractor={item => String(item.id)}
+				renderItem={({ item }) => <Delivery data={item} />}
+			/>
 		</Container>
 	);
 }

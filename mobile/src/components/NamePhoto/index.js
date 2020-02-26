@@ -1,11 +1,11 @@
 import React from 'react';
 
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import { Container, TextPhoto } from './styles';
 
 export default function NamePhoto({ name }) {
-	const nameSplit = name.split(' ');
+	const nameSplit = name?.split(' ');
 
 	const number = Math.floor(Math.random() * (5 + 1));
 
@@ -19,6 +19,6 @@ export default function NamePhoto({ name }) {
 	);
 }
 
-// NamePhoto.propTypes = {
-// 	name: PropTypes.string.isRequired,
-// };
+NamePhoto.propTypes = {
+	name: PropTypes.string.isRequired,
+};

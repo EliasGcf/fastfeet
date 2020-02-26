@@ -2,10 +2,11 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import PropTypes from 'prop-types';
 
 import SignIn from '~/pages/SignIn';
 
-import Dashboard from './Dashboard.routes';
+import DashboardRoutes from './Dashboard.routes';
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,7 @@ export default function Routes({ signed }) {
 			>
 				{!signed ? (
 					<Stack.Screen
-						name="Entrar"
+						name="SignIn"
 						options={{ headerShown: false }}
 						component={SignIn}
 					/>
@@ -28,10 +29,14 @@ export default function Routes({ signed }) {
 					<Stack.Screen
 						name="Dashboard"
 						options={{ headerShown: false }}
-						component={Dashboard}
+						component={DashboardRoutes}
 					/>
 				)}
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
 }
+
+Routes.propTypes = {
+	signed: PropTypes.bool.isRequired,
+};

@@ -3,6 +3,7 @@ import { StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+// import PropTypes from 'prop-types';
 
 import DashboardPage from '~/pages/Dashboard';
 import Deliveries from '~/pages/Deliveries';
@@ -14,7 +15,11 @@ export default function Dashboard() {
 	return (
 		<>
 			<StatusBar backgroundColor="#fff" barStyle="dark-content" />
-			<Tab.Navigator tabBarOptions={{ activeTintColor: colors.primary }}>
+			<Tab.Navigator
+				tabBarOptions={{
+					activeTintColor: colors.primary,
+				}}
+			>
 				<Tab.Screen
 					name="Entregas"
 					options={{
@@ -25,8 +30,9 @@ export default function Dashboard() {
 					component={Deliveries}
 				/>
 				<Tab.Screen
-					name="Meu Perfil"
+					name="Profile"
 					options={{
+						tabBarLabel: 'Meu Perfil',
 						tabBarIcon: ({ color, size }) => (
 							<Icon name="account-circle" size={size} color={color} />
 						),

@@ -23,10 +23,12 @@ class DeliveryDeliveredController {
 				'id',
 				'deliveryman_id',
 				'product',
+				'status',
 				'start_date',
 				'end_date',
 				'canceled_at',
 			],
+			order: ['id'],
 			include: [
 				{
 					model: Recipient,

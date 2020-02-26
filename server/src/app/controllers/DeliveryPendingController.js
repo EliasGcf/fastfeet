@@ -19,10 +19,12 @@ class DeliveryPendingController {
 				signature_id: null,
 				canceled_at: null,
 			},
+			order: ['id'],
 			attributes: [
 				'id',
 				'deliveryman_id',
 				'product',
+				'status',
 				'start_date',
 				'end_date',
 				'canceled_at',
