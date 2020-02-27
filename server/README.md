@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="FastFeet" title="FastFeet" src="../.github/logo.png" width="300px" /> <br />
+  <img alt="FastFeet" title="FastFeet" src="../.github/LogoFastFeetGoStack.png" width="300px" /> <br />
 	API
 </h1>
 
