@@ -45,6 +45,8 @@ export default function Deliveries() {
 
 	useEffect(() => {
 		async function loadDeliveries() {
+			if (!auth.id) return;
+
 			const response =
 				typeDeliveries === 'PENDENTES'
 					? await api.get(`/deliveryman/${auth.id}`)
