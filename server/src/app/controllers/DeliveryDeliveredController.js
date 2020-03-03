@@ -18,6 +18,7 @@ class DeliveryDeliveredController {
 		const deliveries = await Delivery.findAll({
 			where: {
 				signature_id: { [Op.not]: null },
+				deliveryman_id: deliverymanId,
 			},
 			attributes: [
 				'id',
