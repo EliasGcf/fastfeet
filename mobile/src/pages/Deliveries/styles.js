@@ -19,6 +19,7 @@ export const ActionContainer = styled.View`
 
 	justify-content: center;
 	align-items: center;
+	padding: 0 20px;
 `;
 
 export const TitleContainer = styled.View`
