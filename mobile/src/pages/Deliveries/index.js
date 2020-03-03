@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { parseISO, format } from 'date-fns';
+
 import Avatar from '~/components/Avatar';
 import Delivery from '~/components/Delivey';
 import NamePhoto from '~/components/NamePhoto';
@@ -52,7 +54,14 @@ export default function Deliveries() {
 					? await api.get(`/deliveryman/${auth.id}`)
 					: await api.get(`/deliveryman/${auth.id}/deliveries`);
 
-			setDeliveries(response.data);
+			const data = response.data.map(delivery => ({
+				...delivery,
+				start_date_formated: delivery.start_date
+					? format(parseISO(delivery?.start_date), 'dd/MM/yyyy')
+					: '--/--/--',
+			}));
+
+			setDeliveries(data);
 		}
 
 		loadDeliveries();
@@ -65,7 +74,7 @@ export default function Deliveries() {
 					{profile?.avatar ? (
 						<Avatar source={{ uri: profile?.avatar?.url }} />
 					) : (
-						<NamePhoto name={profile?.name} />
+						<>{profile?.name && <NamePhoto name={profile?.name} />}</>
 					)}
 				</ActionContainer>
 

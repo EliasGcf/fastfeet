@@ -44,6 +44,7 @@ module.exports = {
 		'no-param-reassign': 'off',
 		'react/jsx-props-no-spreading': 'off',
 		'no-underscore-dangle': 'off',
+		camelcase: 'off',
 		'import-helpers/order-imports': [
 			'warn',
 			{

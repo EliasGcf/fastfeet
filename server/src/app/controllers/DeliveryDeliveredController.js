@@ -33,7 +33,7 @@ class DeliveryDeliveredController {
 				{
 					model: Recipient,
 					as: 'recipient',
-					attributes: ['id', 'name'],
+					attributes: ['id', 'name', 'city'],
 				},
 				{
 					model: File,

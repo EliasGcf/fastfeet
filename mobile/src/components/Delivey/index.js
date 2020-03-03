@@ -28,11 +28,11 @@ export default function Delivey({ data }) {
 			<Details>
 				<Detail>
 					<TitleDetail>Data</TitleDetail>
-					<TextDetail>15/01/2020</TextDetail>
+					<TextDetail>{data.start_date_formated}</TextDetail>
 				</Detail>
 				<Detail>
 					<TitleDetail>Cidade</TitleDetail>
-					<TextDetail>15/01/2020</TextDetail>
+					<TextDetail>{data.recipient.city}</TextDetail>
 				</Detail>
 				<Detail>
 					<TextLink>Ver detalhes</TextLink>
