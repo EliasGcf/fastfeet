@@ -5,8 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import PropTypes from 'prop-types';
 
-import Deliveries from '~/pages/Deliveries';
 import Profile from '~/pages/Profile';
+import DeliveryRoutes from '~/routes/Delivery.routes';
 import colors from '~/styles/colors';
 
 const Tab = createBottomTabNavigator();
@@ -27,7 +27,7 @@ export default function Dashboard() {
 							<Icon name="reorder" size={size} color={color} />
 						),
 					}}
-					component={Deliveries}
+					component={DeliveryRoutes}
 				/>
 				<Tab.Screen
 					name="Profile"

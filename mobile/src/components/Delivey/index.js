@@ -1,6 +1,8 @@
 import React from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import { useNavigation } from '@react-navigation/native';
+
 import Progress from '~/components/DeliveryProgress';
 import colors from '~/styles/colors';
 
@@ -16,6 +18,8 @@ import {
 } from './styles';
 
 export default function Delivey({ data }) {
+	const navigation = useNavigation();
+
 	return (
 		<Container>
 			<TitleContainer>
@@ -35,7 +39,11 @@ export default function Delivey({ data }) {
 					<TextDetail>{data.recipient.city}</TextDetail>
 				</Detail>
 				<Detail>
-					<TextLink>Ver detalhes</TextLink>
+					<TextLink
+						onPress={() => navigation.navigate('Detalhes', { delivery: data })}
+					>
+						Ver detalhes
+					</TextLink>
 				</Detail>
 			</Details>
 		</Container>
