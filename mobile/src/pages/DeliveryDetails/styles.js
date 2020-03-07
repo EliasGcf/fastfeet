@@ -8,8 +8,6 @@ export const Container = styled.View`
 	flex: 1;
 `;
 
-// style={{ backgroundColor: '#333', height: 200, marginTop: -120 }}
-
 export const Background = styled.View`
 	background: ${colors.primary};
 	height: 155px;
@@ -57,4 +55,33 @@ export const Value = styled(Text)`
 
 export const Status = styled(Value)`
 	text-transform: capitalize;
+`;
+
+export const Menu = styled.View`
+	margin: 0 20px;
+	background: #f8f9fd;
+	border-radius: 4px;
+	border: 1px solid #eee;
+
+	height: 83px;
+
+	flex-direction: row;
+`;
+
+export const Option = styled.TouchableOpacity`
+	justify-content: center;
+	align-items: center;
+
+	border: 1px solid #eee;
+
+	flex: 1;
+`;
+
+export const OptionTitle = styled(Text)`
+	font-size: 12px;
+	color: #999;
+	width: 60px;
+
+	margin-top: 5px;
+	text-align: center;
 `;

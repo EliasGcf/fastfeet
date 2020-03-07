@@ -16,6 +16,9 @@ import {
 	Label,
 	Value,
 	Status,
+	Menu,
+	Option,
+	OptionTitle,
 } from './styles';
 
 export default function DeliveryDetails() {
@@ -64,6 +67,28 @@ export default function DeliveryDetails() {
 						</View>
 					</View>
 				</Card>
+
+				<Menu>
+					<Option>
+						<Icon name="highlight-off" color={colors.danger} size={20} />
+						<OptionTitle>Informar Problema</OptionTitle>
+					</Option>
+					<Option>
+						<Icon name="info-outline" color="#E7BA40" size={20} />
+						<OptionTitle>Visualizar Problemas</OptionTitle>
+					</Option>
+					{delivery.status === 'PENDENTE' ? (
+						<Option>
+							<Icon name="local-shipping" color={colors.primary} size={20} />
+							<OptionTitle>Realizar Retirada</OptionTitle>
+						</Option>
+					) : (
+						<Option>
+							<Icon name="check-circle" color={colors.primary} size={20} />
+							<OptionTitle>Confirmar Entrega</OptionTitle>
+						</Option>
+					)}
+				</Menu>
 			</Content>
 		</Container>
 	);
