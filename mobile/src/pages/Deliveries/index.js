@@ -58,7 +58,10 @@ export default function Deliveries() {
         ...delivery,
         start_date_formated: delivery.start_date
           ? format(parseISO(delivery?.start_date), 'dd/MM/yyyy')
-          : '--/--/--',
+          : '- - / - - / - -',
+        end_date_formated: delivery.end_date
+          ? format(parseISO(delivery?.end_date), 'dd/MM/yyyy')
+          : '- - / - - / - -',
       }));
 
       setDeliveries(data);

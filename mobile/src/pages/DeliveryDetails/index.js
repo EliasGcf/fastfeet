@@ -88,11 +88,11 @@ export default function DeliveryDetails() {
           >
             <View>
               <Label>DATA DE RETIRADA</Label>
-              <Value>{delivery.start_date_formated || '- - / - - / - -'}</Value>
+              <Value>{delivery.start_date_formated}</Value>
             </View>
             <View>
               <Label>DATA DE ENTREGA</Label>
-              <Value>{delivery.end_date || '- - / - - / - -'}</Value>
+              <Value>{delivery.end_date_formated}</Value>
             </View>
           </View>
         </Card>
