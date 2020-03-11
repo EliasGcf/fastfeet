@@ -1,9 +1,11 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { Alert, StatusBar, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useSelector } from 'react-redux';
 
 import { useRoute } from '@react-navigation/native';
 
+import api from '~/services/api';
 import colors from '~/styles/colors';
 
 import {
@@ -22,8 +24,35 @@ import {
 } from './styles';
 
 export default function DeliveryDetails() {
+  const auth = useSelector(state => state.auth);
   const route = useRoute();
   const { delivery } = route.params;
+
+  async function handleDeliveryWithdraw() {
+    async function delievryWithdraw() {
+      api.put(`/deliveryman/${auth.id}/delivery/${delivery.id}`, {
+        start_date: new Date(),
+      });
+    }
+
+    Alert.alert(
+      'Confirmação de retirada',
+      'Confirma que deseja realizar a retirada desta encomenda?',
+      [
+        {
+          text: 'Cancelar',
+          style: 'destructive',
+        },
+        {
+          text: 'Confirmar',
+          onPress: delievryWithdraw,
+        },
+      ],
+      {
+        cancelable: false,
+      }
+    );
+  }
 
   return (
     <Container>
@@ -59,7 +88,7 @@ export default function DeliveryDetails() {
           >
             <View>
               <Label>DATA DE RETIRADA</Label>
-              <Value>{delivery.start_date || '- - / - - / - -'}</Value>
+              <Value>{delivery.start_date_formated || '- - / - - / - -'}</Value>
             </View>
             <View>
               <Label>DATA DE ENTREGA</Label>
@@ -78,7 +107,7 @@ export default function DeliveryDetails() {
             <OptionTitle>Visualizar Problemas</OptionTitle>
           </Option>
           {delivery.status === 'PENDENTE' ? (
-            <Option>
+            <Option onPress={handleDeliveryWithdraw}>
               <Icon name="local-shipping" color={colors.primary} size={20} />
               <OptionTitle>Realizar Retirada</OptionTitle>
             </Option>
