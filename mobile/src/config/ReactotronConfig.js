@@ -6,14 +6,14 @@ import sagaPlugin from 'reactotron-redux-saga';
 import AsyncStorage from '@react-native-community/async-storage';
 
 if (__DEV__) {
-	const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
-		.configure({ host: '192.168.0.100' })
-		.useReactNative()
-		.use(reactotronRedux())
-		.use(sagaPlugin())
-		.connect();
+  const tron = Reactotron.setAsyncStorageHandler(AsyncStorage)
+    .configure({ host: '192.168.0.100' })
+    .useReactNative()
+    .use(reactotronRedux())
+    .use(sagaPlugin())
+    .connect();
 
-	tron.clear();
+  tron.clear();
 
-	console.tron = tron;
+  console.tron = tron;
 }

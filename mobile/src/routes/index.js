@@ -9,21 +9,21 @@ import DashboardRoutes from './Dashboard.routes';
 const Stack = createStackNavigator();
 
 export default function createRouter(isSigned = false) {
-	return !isSigned ? (
-		<Stack.Navigator>
-			<Stack.Screen
-				name="SignIn"
-				options={{ headerShown: false }}
-				component={SignIn}
-			/>
-		</Stack.Navigator>
-	) : (
-		<Stack.Navigator>
-			<Stack.Screen
-				name="Dashboard"
-				options={{ headerShown: false }}
-				component={DashboardRoutes}
-			/>
-		</Stack.Navigator>
-	);
+  return !isSigned ? (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="SignIn"
+        options={{ headerShown: false }}
+        component={SignIn}
+      />
+    </Stack.Navigator>
+  ) : (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Dashboard"
+        options={{ headerShown: false }}
+        component={DashboardRoutes}
+      />
+    </Stack.Navigator>
+  );
 }

@@ -4,84 +4,84 @@ import Text from '~/components/Text';
 import colors from '~/styles/colors';
 
 export const Container = styled.View`
-	background: #fff;
-	flex: 1;
+  background: #fff;
+  flex: 1;
 `;
 
 export const Background = styled.View`
-	background: ${colors.primary};
-	height: 155px;
+  background: ${colors.primary};
+  height: 155px;
 `;
 export const Content = styled.View`
-	margin-top: -60px;
-	height: 200px;
+  margin-top: -60px;
+  height: 200px;
 `;
 
 export const Card = styled.View`
-	background: #fff;
-	margin: 0 20px;
-	margin-bottom: 10px;
-	padding: 15px 30px 0 15px;
+  background: #fff;
+  margin: 0 20px;
+  margin-bottom: 10px;
+  padding: 15px 30px 0 15px;
 
-	border-radius: 4px;
-	border: 1px solid #eee;
+  border-radius: 4px;
+  border: 1px solid #eee;
 `;
 
 export const TitleContainer = styled.View`
-	flex-direction: row;
-	align-items: center;
-	margin-bottom: 10px;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 
 export const Title = styled(Text)`
-	font-size: 14px;
-	font-weight: bold;
-	color: ${colors.primary};
-	margin-left: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: ${colors.primary};
+  margin-left: 10px;
 `;
 
 export const Label = styled(Text)`
-	font-size: 14px;
-	font-weight: bold;
-	color: #999;
-	margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #999;
+  margin-bottom: 5px;
 `;
 
 export const Value = styled(Text)`
-	font-size: 14px;
-	color: #666;
-	margin-bottom: 15px;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
 `;
 
 export const Status = styled(Value)`
-	text-transform: capitalize;
+  text-transform: capitalize;
 `;
 
 export const Menu = styled.View`
-	margin: 0 20px;
-	background: #f8f9fd;
-	border-radius: 4px;
-	border: 1px solid #eee;
+  margin: 0 20px;
+  background: #f8f9fd;
+  border-radius: 4px;
+  border: 1px solid #eee;
 
-	height: 83px;
+  height: 83px;
 
-	flex-direction: row;
+  flex-direction: row;
 `;
 
 export const Option = styled.TouchableOpacity`
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 
-	border: 1px solid #eee;
+  border: 1px solid #eee;
 
-	flex: 1;
+  flex: 1;
 `;
 
 export const OptionTitle = styled(Text)`
-	font-size: 12px;
-	color: #999;
-	width: 60px;
+  font-size: 12px;
+  color: #999;
+  width: 60px;
 
-	margin-top: 5px;
-	text-align: center;
+  margin-top: 5px;
+  text-align: center;
 `;
