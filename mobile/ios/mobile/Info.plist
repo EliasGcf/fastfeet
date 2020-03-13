@@ -59,5 +59,7 @@
 		<string>Roboto-Regular.ttf</string>
 		<string>MaterialIcons.ttf</string>
 	</array>
+  <key>NSCameraUsageDescription</key>
+  <string>Este aplicativo precisa acessar a câmera</string>
 </dict>
 </plist>

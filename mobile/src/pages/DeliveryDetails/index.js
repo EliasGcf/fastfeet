@@ -3,7 +3,7 @@ import { Alert, StatusBar, View } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useSelector } from 'react-redux';
 
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 import api from '~/services/api';
 import colors from '~/styles/colors';
@@ -25,6 +25,7 @@ import {
 
 export default function DeliveryDetails() {
   const auth = useSelector(state => state.auth);
+  const navigation = useNavigation();
   const route = useRoute();
   const { delivery } = route.params;
 
@@ -100,21 +101,21 @@ export default function DeliveryDetails() {
         <Menu>
           <Option>
             <Icon name="highlight-off" color={colors.danger} size={20} />
-            <OptionTitle>Informar Problema</OptionTitle>
+            <OptionTitle>Informar{`\n`}Problema</OptionTitle>
           </Option>
           <Option>
             <Icon name="info-outline" color="#E7BA40" size={20} />
-            <OptionTitle>Visualizar Problemas</OptionTitle>
+            <OptionTitle>Visualizar{`\n`}Problemas</OptionTitle>
           </Option>
           {delivery.status === 'PENDENTE' ? (
             <Option onPress={handleDeliveryWithdraw}>
               <Icon name="local-shipping" color={colors.primary} size={20} />
-              <OptionTitle>Realizar Retirada</OptionTitle>
+              <OptionTitle>Realizar{`\n`}Retirada</OptionTitle>
             </Option>
           ) : (
-            <Option>
+            <Option onPress={() => navigation.navigate('ConfirmPhoto')}>
               <Icon name="check-circle" color={colors.primary} size={20} />
-              <OptionTitle>Confirmar Entrega</OptionTitle>
+              <OptionTitle>Confirmar{`\n`}Entrega</OptionTitle>
             </Option>
           )}
         </Menu>

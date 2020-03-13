@@ -14,7 +14,6 @@ export const Background = styled.View`
 `;
 export const Content = styled.View`
   margin-top: -60px;
-  height: 200px;
 `;
 
 export const Card = styled.View`
@@ -80,7 +79,6 @@ export const Option = styled.TouchableOpacity`
 export const OptionTitle = styled(Text)`
   font-size: 12px;
   color: #999;
-  width: 60px;
 
   margin-top: 5px;
   text-align: center;
