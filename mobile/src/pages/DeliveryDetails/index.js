@@ -31,9 +31,13 @@ export default function DeliveryDetails() {
 
   async function handleDeliveryWithdraw() {
     async function delievryWithdraw() {
-      api.put(`/deliveryman/${auth.id}/delivery/${delivery.id}`, {
-        start_date: new Date(),
-      });
+      try {
+        await api.put(`/deliveryman/${auth.id}/delivery/${delivery.id}`, {
+          start_date: new Date(),
+        });
+      } catch (err) {
+        Alert.alert('Horário de retirda inválida.');
+      }
     }
 
     Alert.alert(
