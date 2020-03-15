@@ -14,6 +14,9 @@ export default function DeliveryRoutes() {
       screenOptions={{
         headerBackTitleVisible: false,
         headerTitleAlign: 'center',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
         headerTintColor: '#fff',
         headerTransparent: true,
       }}
