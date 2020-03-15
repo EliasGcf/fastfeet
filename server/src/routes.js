@@ -36,6 +36,8 @@ routes.post('/delivery/:id/problems', DeliveryProblem.store);
 
 routes.get('/deliverymen/:id', DeliverymanController.show);
 
+routes.post('/files', upload.single('file'), FileController.store); // Upload de arquivos
+
 routes.use(authMiddleware); // todas as rotas declaradas abaixo, deverão conter o token.
 
 // Rotas de destinatarios
@@ -62,7 +64,5 @@ routes.put('/deliveries/:id', DeliveryController.update);
 routes.delete('/deliveries/:id', DeliveryController.destroy);
 
 routes.delete('/problem/:id/cancel-delivery', DeliveryProblem.destroy);
-
-routes.post('/files', upload.single('file'), FileController.store); // Upload de arquivos
 
 export default routes;
