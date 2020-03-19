@@ -1,5 +1,9 @@
 import React, { useRef, useState } from 'react';
+import { Image } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { useSelector } from 'react-redux';
+
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import api from '~/services/api';
 
@@ -14,6 +18,9 @@ import {
 } from './styles';
 
 export default function DeliveryConfirmPhoto() {
+  const auth = useSelector(state => state.auth);
+  const navigation = useNavigation();
+  const route = useRoute();
   // eslint-disable-next-line prefer-const
   let cameraRef = useRef(null);
   const [pictureUri, setPictureUri] = useState('');
@@ -27,7 +34,14 @@ export default function DeliveryConfirmPhoto() {
       name: 'assignature.jpg',
     });
 
-    await api.post('files', dataFile);
+    const pictureResponse = await api.post('files', dataFile);
+    await api.put(
+      `/deliveryman/${auth.id}/delivery/${route.params.delivery_id}/finish`,
+      {
+        signature_id: pictureResponse.data.id,
+      }
+    );
+    navigation.navigate('Entregas');
   }
 
   async function handletakePicture() {
@@ -42,12 +56,18 @@ export default function DeliveryConfirmPhoto() {
     <Container>
       <Background />
       <Content>
-        <CameraWrapper>
-          <Camera ref={cameraRef} type="back" captureAudio={false} />
-          <TakePictureButton onPress={handletakePicture}>
-            <Icon name="photo-camera" color="#fff" size={30} />
-          </TakePictureButton>
-        </CameraWrapper>
+        {pictureUri ? (
+          <CameraWrapper>
+            <Image source={{ uri: pictureUri }} style={{ height: '100%' }} />
+          </CameraWrapper>
+        ) : (
+          <CameraWrapper>
+            <Camera ref={cameraRef} type="back" captureAudio={false} />
+            <TakePictureButton onPress={handletakePicture}>
+              <Icon name="photo-camera" color="#fff" size={30} />
+            </TakePictureButton>
+          </CameraWrapper>
+        )}
         <Button onPress={handleSubmit} loading={false}>
           Enviar
         </Button>
