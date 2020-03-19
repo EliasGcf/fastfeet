@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Platform } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '~/services/api';
 
@@ -10,6 +10,7 @@ import {
   CameraWrapper,
   Camera,
   Button,
+  TakePictureButton,
 } from './styles';
 
 export default function DeliveryConfirmPhoto() {
@@ -18,6 +19,7 @@ export default function DeliveryConfirmPhoto() {
   const [pictureUri, setPictureUri] = useState('');
 
   async function handleSubmit() {
+    // eslint-disable-next-line no-undef
     const dataFile = new FormData();
     dataFile.append('file', {
       type: 'image/jpg',
@@ -33,7 +35,6 @@ export default function DeliveryConfirmPhoto() {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
       await setPictureUri(data.uri);
-      await handleSubmit();
     }
   }
 
@@ -43,8 +44,11 @@ export default function DeliveryConfirmPhoto() {
       <Content>
         <CameraWrapper>
           <Camera ref={cameraRef} type="back" captureAudio={false} />
+          <TakePictureButton onPress={handletakePicture}>
+            <Icon name="photo-camera" color="#fff" size={30} />
+          </TakePictureButton>
         </CameraWrapper>
-        <Button onPress={handletakePicture} loading={false}>
+        <Button onPress={handleSubmit} loading={false}>
           Enviar
         </Button>
       </Content>

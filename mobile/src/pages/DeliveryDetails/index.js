@@ -35,6 +35,8 @@ export default function DeliveryDetails() {
         await api.put(`/deliveryman/${auth.id}/delivery/${delivery.id}`, {
           start_date: new Date(),
         });
+
+        navigation.navigate('Entregas');
       } catch (err) {
         Alert.alert('Horário de retirda inválida.');
       }
