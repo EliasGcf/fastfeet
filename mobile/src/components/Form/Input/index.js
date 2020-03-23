@@ -1,6 +1,8 @@
 import React, { useRef, useEffect } from 'react';
+import { ViewPropTypes } from 'react-native';
 
 import { useField } from '@unform/core';
+import PropTypes from 'prop-types';
 
 import { Container, TInput } from './styles';
 
@@ -31,3 +33,12 @@ export default function Input({ name, style, ...rest }) {
     </Container>
   );
 }
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  style: ViewPropTypes.style,
+};
+
+Input.defaultProps = {
+  style: null,
+};

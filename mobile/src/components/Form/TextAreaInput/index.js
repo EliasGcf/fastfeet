@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
 import { useField } from '@unform/core';
+import PropTypes from 'prop-types';
 
 import { TInput } from './styles';
 
@@ -35,3 +36,12 @@ export default function TextAreaInput({ name, style, ...rest }) {
     />
   );
 }
+
+TextAreaInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  style: PropTypes.arrayOf(PropTypes.object),
+};
+
+TextAreaInput.defaultProps = {
+  style: null,
+};
