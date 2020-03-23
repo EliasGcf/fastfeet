@@ -2,6 +2,7 @@ import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
 
+import CreateProblem from '~/pages/CreateProblem';
 import Deliveries from '~/pages/Deliveries';
 import DeliveryConfirmPhoto from '~/pages/DeliveryConfirmPhoto';
 import DeliveryDetails from '~/pages/DeliveryDetails';
@@ -40,6 +41,13 @@ export default function DeliveryRoutes() {
           title: 'Confirmar entrega',
         }}
         component={DeliveryConfirmPhoto}
+      />
+      <Stack.Screen
+        name="CraeteProblem"
+        options={{
+          title: 'Informar problema',
+        }}
+        component={CreateProblem}
       />
     </Stack.Navigator>
   );

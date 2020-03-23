@@ -66,7 +66,6 @@ export default function Deliveries() {
 
       setDeliveries(data);
     }
-
     loadDeliveries();
   }, [auth.id, typeDeliveries]);
 

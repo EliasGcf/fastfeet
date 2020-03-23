@@ -1,4 +1,5 @@
 import { RNCamera } from 'react-native-camera';
+import { RectButton } from 'react-native-gesture-handler';
 
 import styled from 'styled-components/native';
 
@@ -38,4 +39,16 @@ export const Button = styled(CButton)`
   background: ${colors.primary};
 
   margin: 15px 0 15px 0;
+`;
+
+export const TakePictureButton = styled(RectButton)`
+  background: rgba(000, 000, 000, 0.5);
+
+  position: absolute;
+
+  padding: 20px;
+  border-radius: 100px;
+
+  bottom: 25px;
+  align-self: center;
 `;

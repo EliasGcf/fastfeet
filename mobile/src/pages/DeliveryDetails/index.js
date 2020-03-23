@@ -35,6 +35,8 @@ export default function DeliveryDetails() {
         await api.put(`/deliveryman/${auth.id}/delivery/${delivery.id}`, {
           start_date: new Date(),
         });
+
+        navigation.navigate('Entregas');
       } catch (err) {
         Alert.alert('Horário de retirda inválida.');
       }
@@ -103,7 +105,11 @@ export default function DeliveryDetails() {
         </Card>
 
         <Menu>
-          <Option>
+          <Option
+            onPress={() =>
+              navigation.navigate('CraeteProblem', { delivery_id: delivery.id })
+            }
+          >
             <Icon name="highlight-off" color={colors.danger} size={20} />
             <OptionTitle>Informar{`\n`}Problema</OptionTitle>
           </Option>
@@ -117,7 +123,13 @@ export default function DeliveryDetails() {
               <OptionTitle>Realizar{`\n`}Retirada</OptionTitle>
             </Option>
           ) : (
-            <Option onPress={() => navigation.navigate('ConfirmPhoto')}>
+            <Option
+              onPress={() =>
+                navigation.navigate('ConfirmPhoto', {
+                  delivery_id: delivery.id,
+                })
+              }
+            >
               <Icon name="check-circle" color={colors.primary} size={20} />
               <OptionTitle>Confirmar{`\n`}Entrega</OptionTitle>
             </Option>
