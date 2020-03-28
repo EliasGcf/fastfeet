@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="FastFeet" height="215" title="FastFeet" src=".github/logo.svg" />
+  <img alt="FastFeet" height="215" title="FastFeet" src=".github/logo.svg" />s
 </h1>
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
@@ -12,10 +12,10 @@
 
 <strong>Links dos desafios:</strong>
 
-- [Desafio 1](https://github.com/rocketseat/bootcamp-gostack-desafio-02)
-- [Desafio 2](https://github.com/rocketseat/bootcamp-gostack-desafio-03)
-- [Desafio 3](https://github.com/rocketseat/bootcamp-gostack-desafio-09)
-- [Desafio 4](https://github.com/rocketseat/bootcamp-gostack-desafio-10)
+- [Etapa 1](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_1.md)
+- [Etapa 2](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_2.md)
+- [Etapa 3](https://github.com/EliasGcf/fastfeet/blob/master/web/ETAPA_3.md)
+- [Etapa 4](https://github.com/EliasGcf/fastfeet/blob/master/mobile/ETAPA_4.md)
 
 ## :rocket: Tecnologias
 

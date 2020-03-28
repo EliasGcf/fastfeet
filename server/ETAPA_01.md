@@ -1,12 +1,12 @@
 <h1 align="center">
-  <img alt="Fastfeet" title="Fastfeet" src="../.github/logo.png" width="300px" />
+	<img alt="FastFeet" height="215" title="FastFeet" src="../.github/logo.svg" />
 </h1>
 
 <h3 align="center">
-  Desafio 2: FastFeet, o início
+  FastFeet, o início
 </h3>
 
-<p align="center">Confira em <a href="https://github.com/EliasGcf/fastfeet/blob/master/backend/ETAPA_2.md">ETAPA_2.md</a> as instruções para os próximos passos</p>
+<p align="center">Confira em <a href="https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_2.md">ETAPA 2</a> as instruções para os próximos passos</p>
 
 <h3 align="center">
   :warning: Etapa 1/4 do Desafio Final :warning:
@@ -17,23 +17,7 @@
 <blockquote align="center">“Não espere para plantar, apenas tenha paciência para colher”!</blockquote>
 
 <p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rocketseat/bootcamp-gostack-desafio-02?color=%2304D361">
-
-  <a href="https://rocketseat.com.br">
-    <img alt="Made by Rocketseat" src="https://img.shields.io/badge/made%20by-Rocketseat-%2304D361">
-  </a>
-
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361">
-
-  <a href="https://github.com/Rocketseat/bootcamp-gostack-desafio-02/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/rocketseat/bootcamp-gostack-desafio-02?style=social">
-  </a>
-</p>
-
-<p align="center">
-  <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-entrega">Entrega</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
+  <a href="#rocket-sobre-o-desafio">Sobre o desafio</a>
 </p>
 
 ## :rocket: Sobre o desafio
@@ -106,14 +90,6 @@ Utilize uma nova tabela no banco de dados chamada `recipients` para guardar info
 O cadastro de destinatários só pode ser feito por administradores autenticados na aplicação.
 
 O destinatário não pode se autenticar no sistema, ou seja, não possui senha.
-
-## 📅 Entrega
-
-Esse desafio **não precisa ser entregue** e não receberá correção. Além disso, o código fonte **não está disponível** por fazer parte do **desafio final**, que será corrigido para **certificação** do bootcamp. Após concluir o desafio, adicionar esse código ao seu Github é uma boa forma de demonstrar seus conhecimentos para oportunidades futuras.
-
-## :memo: Licença
-
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
 
