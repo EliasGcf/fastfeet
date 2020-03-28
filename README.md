@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="FastFeet" title="FastFeet" src=".github/LogoFastFeetGoStack.png" />
+  <img alt="FastFeet" height="215" title="FastFeet" src=".github/logo.svg" />
 </h1>
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
@@ -9,7 +9,6 @@
  <a href="#computer-instalação-execução-e-desenvolvimento">Instalação, execução e desenvolvimento</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
  <a href="#-como-contribuir">Como contribuir</a>
 </p>
-
 
 <strong>Links dos desafios:</strong>
 
