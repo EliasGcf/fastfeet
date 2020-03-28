@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="FastFeet" height="215" title="FastFeet" src=".github/logo.svg" />s
+  <img alt="FastFeet" height="215" title="FastFeet" src=".github/logo.svg" />
 </h1>
 
 <p align="center">Este codigo representa a minha solução do desafio do Bootcamp GoStack 10.0</p>
