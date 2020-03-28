@@ -12,10 +12,10 @@
 
 <strong>Links dos desafios:</strong>
 
-- [Etapa 1](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_1.md)
-- [Etapa 2](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_2.md)
-- [Etapa 3](https://github.com/EliasGcf/fastfeet/blob/master/web/ETAPA_3.md)
-- [Etapa 4](https://github.com/EliasGcf/fastfeet/blob/master/mobile/ETAPA_4.md)
+- [Etapa 1](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_01.md)
+- [Etapa 2](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_02.md)
+- [Etapa 3](https://github.com/EliasGcf/fastfeet/blob/master/web/ETAPA_03.md)
+- [Etapa 4](https://github.com/EliasGcf/fastfeet/blob/master/mobile/ETAPA_04.md)
 
 ## :rocket: Tecnologias
 
