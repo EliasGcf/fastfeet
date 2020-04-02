@@ -3,3 +3,6 @@
 
 */tmp/uploads/*
 !/server/tmp/uploads/.gitkeep
+
+*/.DS_Store
+.DS_Store

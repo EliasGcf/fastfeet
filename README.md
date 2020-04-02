@@ -50,8 +50,6 @@ Faça um clone desse repositório.
 - Para executar somente a migration de `admin-user` rode o comando `yarn sequelize db:seed --seed 20200212180839-admin-user.js`
 - Importe o arquivo `Insomnia.json` desse repositório no Insomnia;
 
-[Rotas do backend](https://github.com/EliasGcf/fastfeet/blob/master/server/README.md)
-
 ## 🤔 Como contribuir
 
 - Faça um fork desse repositório;
