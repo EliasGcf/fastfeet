@@ -50,6 +50,25 @@ Faça um clone desse repositório.
 - Para executar somente a migration de `admin-user` rode o comando `yarn sequelize db:seed --seed 20200212180839-admin-user.js`
 - Importe o arquivo `Insomnia.json` desse repositório no Insomnia;
 
+### Web
+
+_ps: Antes de executar, lembre-se de iniciar o backend deste projeto_
+
+- A partir da raiz do projeto, entre na pasta do frontend web rodando `cd web`;
+- Rode `yarn` para instalar as dependências;
+- Rode `yarn start` para iniciar o client web;
+
+### Mobile
+
+Obs.: Esse projeto mobile foi testado apenas no **Android**.
+
+_ps: Antes de executar, lembre-se de iniciar o backend deste projeto_
+
+- A partir da raiz do projeto, entre na pasta do frontend mobile rodando `cd mobile`;
+- Rode `yarn` para instalar as dependências;
+- Edite o arquivo `mobile/src/services/api.js`, alterando `baseURL` para o IP correspondente a máquina que estiver executando o `backend`;
+- Abra o emulador do Android ou conecte seu dispositivo via USB, em seguida, rode `yarn react-native run-android`;
+
 ## 🤔 Como contribuir
 
 - Faça um fork desse repositório;
@@ -59,4 +78,4 @@ Faça um clone desse repositório.
 
 ---
 
-Feito com ♥ by [EliasGcf](https://www.linkedin.com/in/eliasgcf/)
+Feito com 💜 by [EliasGcf](https://www.linkedin.com/in/eliasgcf/)
