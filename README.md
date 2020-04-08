@@ -54,7 +54,7 @@ Importe o arquivo `Insomnia.json` no Insomnia ou clique no botão [Run in Insomn
 - Rode `docker-compose up -d` para montar o ambiente;
 - Rode `yarn sequelize db:migrate` para executar as migrations;
 - Para executar somente a migration de `admin-user` rode o comando `yarn sequelize db:seed --seed 20200212180839-admin-user.js`
-- Importe o arquivo `Insomnia.json` desse repositório no Insomnia;
+- Rode `yarn dev` para iniciar o servidor;
 
 ### Web
 
