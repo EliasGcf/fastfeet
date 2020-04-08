@@ -10,6 +10,10 @@
  <a href="#-como-contribuir">Como contribuir</a>
 </p>
 
+<p id="insomniaButton" align="center">
+  <a href="https://insomnia.rest/run/?label=FastFeet&uri=https%3A%2F%2Fraw.githubusercontent.com%2FEliasGcf%2Ffastfeet%2Fmaster%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
+
 <strong>Links dos desafios:</strong>
 
 - [Etapa 1](https://github.com/EliasGcf/fastfeet/blob/master/server/ETAPA_01.md)
@@ -33,12 +37,14 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## :computer: Instalação, execução e desenvolvimento
 
-Faça um clone desse repositório.
+Importe o arquivo `Insomnia.json` no Insomnia ou clique no botão [Run in Insomnia](#insomniaButton)
 
 ### Pré-requisitos
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+
+**Faça um clone desse repositório**
 
 ### Backend
 
