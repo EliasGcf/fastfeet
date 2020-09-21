@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://www.linkedin.com/in/eliasgcf/" target="_blank" rel="noopener noreferrer">
-    <img alt="Made by" src="https://img.shields.io/badge/made%20by-elias%20gabriel-%237D40E7">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Elias%20Gabriel-%237D40E7">
   </a>
   <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/fastfeet?color=%237D40E7">
 </p>
@@ -25,4 +25,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with 💜&nbsp; by Elias Gabriel 👋 [See my linkedin](https://www.linkedin.com/in/eliasgcf/)
+Made with 💜&nbsp; by Elias Gabriel 👋 &nbsp;[See my linkedin](https://www.linkedin.com/in/eliasgcf/)
